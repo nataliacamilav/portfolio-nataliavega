@@ -29,6 +29,7 @@ h1 span {
   font-size: 24px;
   color: #bc6a69;
 }
+/* }
 .skillsCarrousel-container {
   height: 20px;
   display: flex;
@@ -49,7 +50,7 @@ h1 span {
   to {
     transform: translateY(-600%);
   }
-}
+} */
 
 @keyframes scroll {
   to {
