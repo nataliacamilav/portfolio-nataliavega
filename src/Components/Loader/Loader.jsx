@@ -1,6 +1,6 @@
 // React Imports
 import React, { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 // components
 import DynamicSkills from "./DynamicSkills";
 
@@ -10,8 +10,22 @@ import styled, { css, keyframes } from "styled-components";
 // import "./Loader.css";
 
 const Loader = (props) => {
-  console.log(props.translateValue)
-  const stateSlideUp = props.translateValue
+  // console.log(props.translateValue)
+  // const stateSlideUp = props.translateValue
+  const navigate = useNavigate();
+  const [stateSlideUp, setStateSlideUp] = useState(false);
+
+  // Sacar el loader
+  useEffect(() => {
+    // Timer
+    setTimeout(() => {
+      setStateSlideUp(true);
+      setTimeout(() => {
+        navigate("/aboutMe");
+      }, 2000);
+    }, 2000);
+  }, []);
+
   // STYLED COMPONENTS
   // Animaciones
   const infiniteLoop = keyframes`
@@ -24,7 +38,7 @@ const Loader = (props) => {
     transform: translateY(0)
     }
   to {
-    ${stateSlideUp ? `transform: translateY(-100%)` : `transform:translateY(0)`}
+    ${stateSlideUp ? `transform: translateY(-100vh)` : `transform:translateY(0)`}
     }
   `;
   // Loader Container
@@ -61,7 +75,7 @@ const Loader = (props) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
+
     color: #653939;
     font-size: 32px;
   `;

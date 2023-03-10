@@ -1,5 +1,8 @@
-// Stylesheet
+// Import React
 import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+
+// Stylesheet
 import "./App.css";
 
 // Components Imports
@@ -8,22 +11,32 @@ import AboutMe from "./Components/AboutMe/AboutMe";
 const App = () => {
   const [showLoader, setShowLoader] = useState(true);
   const [stateSlideUp, setStateSlideUp] = useState(false);
-  // Sacar el loader
-  useEffect(() => {
-    // Timer
-    setTimeout(() => {
-      setStateSlideUp(true);
 
-      setTimeout(() => {
-        setShowLoader(false);
-      }, 2000);
+  // const navigate = useNavigate();
+  // // Sacar el loader
+  // useEffect(() => {
+  //   // Timer
+  //   setTimeout(() => {
+  //     setStateSlideUp(true);
 
-    }, 2000);
-  }, []);
+  //     navigate("/aboutMe");
+  //   }, 2000);
+  // }, []);
 
   return (
     <div className="App">
-      {showLoader ? <Loader translateValue={stateSlideUp} /> : <AboutMe />}
+      <header></header>
+      {/* {showLoader ? <Loader translateValue={stateSlideUp} /> : <AboutMe />} */}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={<Loader/>}
+          ></Route>
+          <Route exact path="/aboutMe" element={<AboutMe />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
