@@ -2,42 +2,36 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 
-// Stylesheet
-import "./App.css";
+// Style
+import styled from "styled-components";
 
 // Components Imports
 import Loader from "./Components/Loader/Loader";
 import AboutMe from "./Components/AboutMe/AboutMe";
+
 const App = () => {
-  const [showLoader, setShowLoader] = useState(true);
-  const [stateSlideUp, setStateSlideUp] = useState(false);
-
-  // const navigate = useNavigate();
-  // // Sacar el loader
-  // useEffect(() => {
-  //   // Timer
-  //   setTimeout(() => {
-  //     setStateSlideUp(true);
-
-  //     navigate("/aboutMe");
-  //   }, 2000);
-  // }, []);
+  // STYLED COMPONENTS
+  const App = styled.div`
+  width: 100%
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
   return (
-    <div className="App">
-      <header></header>
-      {/* {showLoader ? <Loader translateValue={stateSlideUp} /> : <AboutMe />} */}
+    <App>
+      {/* Loader dinamico */}
+      <Loader />
       <BrowserRouter>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Loader/>}
-          ></Route>
-          <Route exact path="/aboutMe" element={<AboutMe />}></Route>
-        </Routes>
+        <header>{/* navBar */}</header>
+        <main>
+          <Routes>
+            <Route exact path="/" element={<AboutMe />}></Route>
+          </Routes>
+        </main>
       </BrowserRouter>
-    </div>
+    </App>
   );
 };
 

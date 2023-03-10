@@ -1,6 +1,6 @@
 // React Imports
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 // components
 import DynamicSkills from "./DynamicSkills";
 
@@ -10,44 +10,37 @@ import styled, { css, keyframes } from "styled-components";
 // import "./Loader.css";
 
 const Loader = (props) => {
-  // console.log(props.translateValue)
-  // const stateSlideUp = props.translateValue
-  const navigate = useNavigate();
-  const [stateSlideUp, setStateSlideUp] = useState(false);
+  const [valueTop, setValueTop] = useState(0);
 
-  // Sacar el loader
+  // Cambio de value Top del loader LoaderContainer. Se va sumando de
+  // a 1 vh cada cierto tiempo generando el efecto que se desliza hacia arriba
   useEffect(() => {
-    // Timer
     setTimeout(() => {
-      setStateSlideUp(true);
-      setTimeout(() => {
-        navigate("/aboutMe");
-      }, 2000);
-    }, 2000);
+      for (let i = 0; i < 101; i++) {
+        const valueTop = i++;
+        setTimeout(() => {
+          setValueTop(`-` + valueTop + `vh`);
+        }, i * 10);
+      }
+    }, 7000);
   }, []);
 
   // STYLED COMPONENTS
-  // Animaciones
+  // Nubes moviiendose hacia la derecha
   const infiniteLoop = keyframes`
   to {
   background-position: 1500px;
   }
-  `;
-  const slideUp = keyframes`
-  from {
-    transform: translateY(0)
-    }
-  to {
-    ${stateSlideUp ? `transform: translateY(-100vh)` : `transform:translateY(0)`}
-    }
   `;
   // Loader Container
   const LoaderContainer = styled.div`
   
   width: 100%;
   height: 100vh;
-  
-  animation: ${slideUp} 3s linear infinite;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+  position:absolute;
+  top: ${valueTop};
+  left: 0;
   }
   `;
   // Section
