@@ -1,9 +1,9 @@
 // Import React
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route,} from "react-router-dom";
 
-import Theme from "./Components/Theme/Theme";
 // Style
+import Theme from "./Components/Theme/Theme";
 import styled from "styled-components";
 
 // Components Imports
@@ -28,7 +28,7 @@ const App = () => {
             style={{
               width: `100%`,
               height: `72px`,
-              marginTop: `72px`,
+              marginTop: `56px`,
               padding: `0 72px`,
             }}
           >
@@ -43,7 +43,7 @@ const App = () => {
               flexDirection: `column`,
               gap: `72px`,
               alignItems: "center",
-              justifyContent: "center",
+              
             }}
           >
             <Routes>

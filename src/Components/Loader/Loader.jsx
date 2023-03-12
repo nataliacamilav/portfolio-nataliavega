@@ -39,6 +39,7 @@ const Loader = (props) => {
   height: calc(100vh + 72px + 72px);
   background: ${props => props.theme.light.colors.background};
   position:absolute;
+  z-index: 1000;
   top: ${valueTop};
   left: 0;
   }

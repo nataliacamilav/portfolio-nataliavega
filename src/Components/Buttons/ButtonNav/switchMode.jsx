@@ -20,6 +20,8 @@ const SwitchMode = () => {
     position: relative;
     cursor: pointer;
     transition: all 5s linear;
+    
+
     &:after {
       position: absolute;
       top: 0;
