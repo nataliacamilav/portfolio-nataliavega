@@ -1,6 +1,6 @@
 // React Imports
 import React, { useEffect, useState } from "react";
-
+import Theme from "../Theme/Theme";
 // components
 import DynamicSkills from "./DynamicSkills";
 
@@ -16,7 +16,7 @@ const Loader = (props) => {
   // a 1 vh cada cierto tiempo generando el efecto que se desliza hacia arriba
   useEffect(() => {
     setTimeout(() => {
-      for (let i = 0; i < 101; i++) {
+      for (let i = 0; i < 180; i++) {
         const valueTop = i++;
         setTimeout(() => {
           setValueTop(`-` + valueTop + `vh`);
@@ -36,8 +36,8 @@ const Loader = (props) => {
   const LoaderContainer = styled.div`
   
   width: 100%;
-  height: 100vh;
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 85%, rgba(255,255,255,0) 100%);
+  height: calc(100vh + 72px + 72px);
+  background: ${props => props.theme.light.colors.background};
   position:absolute;
   top: ${valueTop};
   left: 0;
