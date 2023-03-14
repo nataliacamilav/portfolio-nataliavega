@@ -11,7 +11,7 @@ const AboutMe = () => {
     background-position: 1500px;
     }
     `;
-  const Container = styled.div`
+  const Container = styled.section`
     width: 100%;
     padding-top: 32px;
     display: flex;
@@ -37,10 +37,11 @@ const AboutMe = () => {
     flex-basis: 250px;
     background-size: 1500px 100%;
     position: relative;
+
     &:after {
       content: "";
       background: url(assets/cvClouds.svg) repeat-x;
-
+      background-size: 500px 250px;
       width: 100%;
       height: 100%;
       position: absolute;
@@ -49,7 +50,7 @@ const AboutMe = () => {
     }
   `;
 
-  const InfoContainer = styled.div`
+  const InfoContainer = styled.article`
     width: 100%;
     display: flex;
     gap: 24px;
@@ -105,7 +106,7 @@ const AboutMe = () => {
           </P>
         </Paragraph>
       </InfoContainer>
-      <P>
+      <P style={{textAlign: `center`}}>
         Espero conseguir un puesto laboral donde pueda emplear mis conocimientos
         actuales y tener la oportunidad de seguir ampliándolos
       </P>

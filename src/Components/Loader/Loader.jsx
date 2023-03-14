@@ -9,21 +9,11 @@ import styled, { css, keyframes } from "styled-components";
 
 // import "./Loader.css";
 
-const Loader = (props) => {
-  const [valueTop, setValueTop] = useState(0);
+const Loader = ({ heightDynamic, valueTop }) => {
+  // const [valueTop, setValueTop] = useState(0);
 
   // Cambio de value Top del loader LoaderContainer. Se va sumando de
   // a 1 vh cada cierto tiempo generando el efecto que se desliza hacia arriba
-  useEffect(() => {
-    setTimeout(() => {
-      for (let i = 0; i < 180; i++) {
-        const valueTop = i++;
-        setTimeout(() => {
-          setValueTop(`-` + valueTop + `vh`);
-        }, i * 10);
-      }
-    }, 7000);
-  }, []);
 
   // STYLED COMPONENTS
   // Nubes moviiendose hacia la derecha
@@ -36,32 +26,44 @@ const Loader = (props) => {
   const LoaderContainer = styled.div`
   
   width: 100%;
-  height: calc(100vh + 72px + 72px);
-  background: ${props => props.theme.light.colors.background};
+  height: ${heightDynamic};
+  background: ${(props) => props.theme.light.colors.background};
   position:absolute;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
   top: ${valueTop};
   left: 0;
   }
   `;
   // Section
   const Section = styled.section`
-  background: url(assets/pinkClouds.svg) repeat-x;
-  width: 100%;
-  height: 100%;
-  
-  background-size: 1500px 100vh;
-  
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-  
-  font-family: "Convergence", sans-serif;
-  animation: ${infiniteLoop} 10s linear infinite;
-  
-  }
+    background: url(assets/pinkClouds.svg) repeat-x;
+    width: 100%;
+    height: 100%;
+
+    background-size: 1500px 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Convergence", sans-serif;
+    animation: ${infiniteLoop} 10s linear infinite;
+
+    .avatarImg {
+      
+      height: 500px;
+      align-self: end;
+    }
+  `;
+  const TextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
   `;
   // H1
   const H1 = styled.h1`
@@ -76,11 +78,16 @@ const Loader = (props) => {
   return (
     <LoaderContainer>
       <Section>
-        <H1>
-          Natalia Vega
-          <span style={{ fontSize: `24px`, color: `#bc6a69` }}>portfolio</span>
-        </H1>
-        <DynamicSkills />
+        <TextContainer>
+          <H1>
+            Natalia Vega
+            <span style={{ fontSize: `24px`, color: `#bc6a69` }}>
+              portfolio
+            </span>
+          </H1>
+          <DynamicSkills />
+        </TextContainer>
+        <img src="assets/avatar.gif" alt="" className="avatarImg" />
       </Section>
     </LoaderContainer>
   );

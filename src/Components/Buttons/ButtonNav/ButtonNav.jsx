@@ -1,16 +1,21 @@
 // React imports
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import Theme from "../../Theme/Theme";
 // Style
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 
-const ButtonNav = ({ text, bgColor, icon }) => {
-  const [colorBg, setColorBg] = useState(false);
-
+const ButtonNav = ({
+  text,
+  bgColor,
+  icon,
+  link,
+  setterSection,
+  sectionSelected,
+  id,
+}) => {
   const ButtonNav = styled.button`
-    background-color: ${colorBg
-      ? (styledProps) => styledProps.theme.light.colors[bgColor]
-      : ``};
+    background-color: "";
 
     display: flex;
     justify-content: center;
@@ -33,17 +38,35 @@ const ButtonNav = ({ text, bgColor, icon }) => {
     border: none;
     outline: none;
     cursor: pointer;
+
     &:hover {
       background-color: ${(propsTheme) =>
         propsTheme.theme.light.colors.lightGrey};
     }
-  `;
 
+    &.selected {
+      background-color: ${(propsTheme) =>
+        propsTheme.theme.light.colors[bgColor]};
+    }
+  `;
   return (
-    <ButtonNav onClick={() => setColorBg(!colorBg)}>
-      {icon}
-      <p>{text}</p>
-    </ButtonNav>
+    <Link
+      to={link}
+      style={{
+        textDecoration: `none`,
+        color: `none`,
+        width: `100%`,
+        height: `100%`,
+      }}
+    >
+      <ButtonNav
+        onClick={() => setterSection(link)}
+        className={sectionSelected === link ? `selected` : ``}
+      >
+        {icon}
+        <p>{text}</p>
+      </ButtonNav>
+    </Link>
   );
 };
 

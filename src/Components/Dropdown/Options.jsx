@@ -25,7 +25,7 @@ const Options = ({ text, img, icon, id, setterLanguage }) => {
     padding: 0 16px;
     height: 52px;
     width: 90px;
-    border-radius: 7px;
+    border-radius: 100px;
     background-color: "";
     
     cursor: pointer;

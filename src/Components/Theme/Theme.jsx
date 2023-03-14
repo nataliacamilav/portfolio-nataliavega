@@ -15,10 +15,11 @@ const light = {
     lightPink: `#FFDAD9`,
 
     // Yellow
-    darkerYellow: `#C8B300`,
+    darkerYellow: `#cfb900`,
     darkYellow: `#EED500`,
     yellow: `#FFD600`,
     lightYellow: `#FFF3B4`,
+    lighterYellow: `#F9F8EE`, 
 
     // Purple
     darkerPurple: ``,

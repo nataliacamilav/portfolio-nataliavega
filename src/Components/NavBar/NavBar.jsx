@@ -1,10 +1,11 @@
 // React imports
-import React from "react";
-import Theme from "../Theme/Theme";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 // Style
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
+import Theme from "../Theme/Theme";
 // iconos
 import {
   MdInfoOutline,
@@ -26,44 +27,59 @@ const Nav = styled.nav`
   border-radius: 100px;
   justify-content: center;
   align-items: center;
-
-  position: absoluite;
 `;
 
 const NavBar = (props) => {
+  const location = useLocation();
+  console.log(`location->`, location.pathname);
+
   // Array de objetos de botones
   const buttonsNav = [
     {
       bgColor: "lightPink",
       text: "Sobre Mi",
       icon: <MdInfoOutline />,
+      link: `/`,
+      id: `aboutme`,
     },
     {
       bgColor: "lightYellow",
       text: "Estudios",
       icon: <MdOutlineSchool />,
+      link: `/studys`,
+      id: `studys`,
     },
     {
       bgColor: "lightGreen",
       text: "Habilidades",
       icon: <MdOutlinePsychology />,
+      link: `/habilities`,
+      id: `habilities`,
     },
     {
       bgColor: "lightBlue",
       text: "Proyectos",
       icon: <MdOutlineFolderSpecial />,
+      link: `/projects`,
+      id: `projects`,
     },
     {
       bgColor: "lightPurple",
       text: "Contacto",
       icon: <MdOutlineContactSupport />,
+      link: `/contact`,
+      id: `contact`,
     },
     {
       bgColor: "lightPink",
       text: "Curriculum",
       icon: <MdOutlineFileDownload />,
+      link: `/resume`,
+      id: `resume`,
     },
   ];
+  const [sectionSelected, setSectionSelected] = useState(location.pathname);
+
   // Renderizado de botones
   const renderButtons = buttonsNav.map((button) => (
     <ButtonNav
@@ -71,9 +87,12 @@ const NavBar = (props) => {
       text={button.text}
       icon={button.icon}
       key={`ButtonNav` + button.text + button.bgColor}
+      link={button.link}
+      id={button.id}
+      setterSection={setSectionSelected}
+      sectionSelected={sectionSelected}
     ></ButtonNav>
   ));
-
   return (
     <Nav>
       <div
