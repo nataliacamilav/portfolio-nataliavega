@@ -1,8 +1,9 @@
 // React
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // Style
 import styled from "styled-components";
+import StudyDisplay from "./StudyDisplay";
 import StudyItem from "./StudyItem";
 
 const Studys = () => {
@@ -13,8 +14,8 @@ const Studys = () => {
       schoolLogo: `coderLogo.svg`,
       degree: `Certificado de React JS`,
       grade: `10`,
-      credential: ``,
-      project: ``,
+      credential: `coderReactCredential.png`,
+      project: `coderReactProject.png`,
       link: `https://beautycosmetics.vercel.app/`,
       finishDate: `Actualidad`,
       startDate: ``,
@@ -25,8 +26,8 @@ const Studys = () => {
       schoolLogo: `nucbaLogo.svg`,
       degree: `Certificado de JavaScript`,
       grade: ``,
-      credential: ``,
-      project: ``,
+      credential: `nucbaJSCredential.png`,
+      project: `nucbaJSProject.png`,
       link: `https://gamingstore-bynatalia.vercel.app/`,
       finishDate: ``,
       startDate: ``,
@@ -37,8 +38,8 @@ const Studys = () => {
       schoolLogo: `coderLogo.svg`,
       degree: `Certificado de Diseño UX UI Avanzado`,
       grade: `10`,
-      credential: ``,
-      project: ``,
+      credential: `coderUXACredential.png`,
+      project: `coderUXAProject.png`,
       link: `https://www.behance.net/gallery/150898443/Re-diseno-de-la-web-HBO-MAX-Natalia-Vega`,
       finishDate: ``,
       startDate: ``,
@@ -49,8 +50,8 @@ const Studys = () => {
       schoolLogo: `nucbaLogo.svg`,
       degree: `Certificado de Diseño Web (HTML5 y CSS)`,
       grade: ``,
-      credential: ``,
-      project: ``,
+      credential: `nucbaDWebCredential.png`,
+      project: `nucbaDWebProject.png`,
       link: `https://nereidas-cruceros.vercel.app/`,
       finishDate: ``,
       startDate: ``,
@@ -61,8 +62,8 @@ const Studys = () => {
       schoolLogo: `coderLogo.svg`,
       degree: `Certificado de Diseño UX UI Inicial`,
       grade: `10`,
-      credential: ``,
-      project: ``,
+      credential: `coderUXCredential.png`,
+      project: `coderUXProject.png`,
       link: `https://www.behance.net/gallery/142527049/Share-Natalia-Vega`,
       finishDate: ``,
       startDate: ``,
@@ -71,7 +72,7 @@ const Studys = () => {
     {
       school: `Universidad de Buenos Aires`,
       schoolLogo: `UBALogo.svg`,
-      degree: `Certificado de Diseño UX UI Inicial`,
+      degree: `Titulo de odontóloga general`,
       grade: `(44% de la carrera - abandonada)`,
       credential: ``,
       project: ``,
@@ -99,6 +100,12 @@ const Studys = () => {
     flex-direction: column;
     gap: 32px;
   `;
+  const StudyDisplayContainer = styled.div`
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: space-between;
+  `;
   const H2 = styled.h2`
     font-family: "Convergence";
     font-style: normal;
@@ -109,9 +116,9 @@ const Studys = () => {
   const StudysContainer = styled.article`
     display: flex;
     flex-direction: column;
-
-    width: 100%;
+    width: fit-content;
   `;
+  const [studySelected, setStudySelected] = useState();
   const renderStudys = studyCollection.map((study) => (
     <StudyItem
       school={study.school}
@@ -123,13 +130,29 @@ const Studys = () => {
       link={study.link}
       finishDate={study.finishDate}
       startDate={study.startDate}
+      setterStudySelected={setStudySelected}
+      studySelected={studySelected}
     ></StudyItem>
   ));
+
+  const findStudySelected = studyCollection.find((study) => {
+    if (studySelected && studySelected === study.degree) return study;
+  });
+  console.log(findStudySelected);
+
   return (
     <Container>
       <H2>Estudios</H2>
-      <StudysContainer>{renderStudys}</StudysContainer>
-      
+      <StudyDisplayContainer>
+        <StudysContainer>{renderStudys}</StudysContainer>
+        {findStudySelected && (
+          <StudyDisplay
+            infoStudySelected={findStudySelected}
+            setterStudySelected={setStudySelected}
+            studySelected={studySelected}
+          ></StudyDisplay>
+        )}
+      </StudyDisplayContainer>
     </Container>
   );
 };

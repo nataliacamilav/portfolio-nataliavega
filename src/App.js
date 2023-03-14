@@ -15,13 +15,13 @@ import Footer from "./Components/Footer/Footer";
 import Studys from "./Components/Studys/Studys";
 
 const App = () => {
-  const [heightDynamic, setheightDynamic] = useState(`101%`);
+  const [heightDynamic, setheightDynamic] = useState(`100px`);
   const [valueTop, setValueTop] = useState(0);
 
   // STYLED COMPONENTS
   const App = styled.div`
   width: 100%
-  min-height: heightDynamic;
+  min-height: 100vh;
   
 `;
 
@@ -43,7 +43,7 @@ const App = () => {
     <Theme>
       <App>
         {/* Loader dinamico */}
-        <Loader heightDynamic={heightDynamic} valueTop={valueTop} />
+        <Loader valueTop={valueTop} />
         <BrowserRouter>
           <header
             style={{
@@ -59,6 +59,8 @@ const App = () => {
             style={{
               width: `100%`,
               minHeight: heightDynamic,
+              height: heightDynamic === `100vh` ? `auto` : `100px`,
+              overflowY: heightDynamic === `100vh` ? `visible` : `hidden`,
               padding: `0 122px`,
               display: `flex`,
               flexDirection: `column`,
@@ -68,7 +70,7 @@ const App = () => {
           >
             <Routes>
               <Route exact path="/" element={<AboutMe />}></Route>
-              <Route exact path="/studys" element={<Studys />}></Route>
+              <Route exact path="/studys" element={<Studys/>}></Route>
             </Routes>
           </main>
           <Footer></Footer>

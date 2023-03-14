@@ -86,8 +86,8 @@ const AboutMe = () => {
         </BgImg>
         <Paragraph>
           <P>
-            Soy una persona <Span>creativa</Span>, <Span>entusiasta</Span> y
-            <Span>responsable</Span>. A comienzos del año 2022 decidí tomar un
+            Soy una persona <Span>creativa</Span>, <Span>entusiasta</Span> y 
+            <Span> responsable</Span>. A comienzos del año 2022 decidí tomar un
             rumbo distinto con mi vida profesional y cambié de estudiar
             odontología a dedicarme al diseño y desarrollo web.
           </P>

@@ -24,7 +24,7 @@ const StudyInfoContainer = styled.div`
   gap: 8px;
   background-color: ${(props) => props.theme.light.colors.lighterYellow};
   border-radius: 7px;
-  width: auto;
+  min-width: 420px;
   height: 100px;
   padding: 16px;
 
@@ -84,7 +84,16 @@ const StudyItem = ({
   link,
   startDate,
   finishDate,
+
+  studySelected,
+  setterStudySelected,
 }) => {
+  console.log(studySelected);
+  const activateDisplay = () => {
+    !project || !credential
+      ? setterStudySelected(undefined)
+      : setterStudySelected(degree);
+  };
   return (
     <Container>
       <DateLine>
@@ -92,7 +101,7 @@ const StudyItem = ({
         <Divider></Divider>
         {startDate && <DateP>{startDate}</DateP>}
       </DateLine>
-      <StudyInfoContainer>
+      <StudyInfoContainer onClick={() => activateDisplay()}>
         <img
           src={`assets/` + schoolLogo}
           alt={`Logo` + school}
@@ -104,7 +113,7 @@ const StudyItem = ({
             {degree} - <Italic>Titulación: {grade}</Italic>{" "}
           </H4>
         </TextContainer>
-        <IoIosArrowForward className="arrowRight" />
+        {(project || credential) && <IoIosArrowForward className="arrowRight" />}
       </StudyInfoContainer>
     </Container>
   );

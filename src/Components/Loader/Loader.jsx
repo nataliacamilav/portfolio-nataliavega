@@ -26,7 +26,7 @@ const Loader = ({ heightDynamic, valueTop }) => {
   const LoaderContainer = styled.div`
   
   width: 100%;
-  height: ${heightDynamic};
+  height: 100vh;
   background: ${(props) => props.theme.light.colors.background};
   position:absolute;
   z-index: 1000;
