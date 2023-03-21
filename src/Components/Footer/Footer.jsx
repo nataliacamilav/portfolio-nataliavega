@@ -13,11 +13,13 @@ const Footer = () => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 144px;
     gap: 16px;
     padding: 32px 92px;
     background-color: ${(props) => props.theme.light.colors.bgNavBar};
     box-sizing: border-box;
+    border-radius: 16px 16px 0 0;
   `;
   const P = styled.p`
     font-family: "Roboto";

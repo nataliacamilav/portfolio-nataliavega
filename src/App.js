@@ -13,18 +13,20 @@ import AboutMe from "./Components/AboutMe/AboutMe";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer/Footer";
 import Studys from "./Components/Studys/Studys";
-
+import Habilities from "./Components/Habilities/Habilities";
+import Contact from "./Components/Contacto/Contact";
+import Projects from "./Components/Projects/Projects";
 const App = () => {
+  // CAmbios dinamicos de Loader
   const [heightDynamic, setheightDynamic] = useState(`100px`);
   const [valueTop, setValueTop] = useState(0);
-
   // STYLED COMPONENTS
   const App = styled.div`
   width: 100%
   min-height: 100vh;
-  
+  color: ${(props) => props.theme.light.colors.text};
 `;
-
+  // UseEffect para Loader
   useEffect(() => {
     setTimeout(() => {
       setheightDynamic(`100vh`);
@@ -36,7 +38,7 @@ const App = () => {
           setValueTop(`-` + valueTop + `vh`);
         }, i * 10);
       }
-    }, 7000);
+    }, 3000);
   }, []);
 
   return (
@@ -44,13 +46,14 @@ const App = () => {
       <App>
         {/* Loader dinamico */}
         <Loader valueTop={valueTop} />
+
         <BrowserRouter>
           <header
             style={{
               width: `100%`,
-              height: `72px`,
-              marginTop: `56px`,
+              height: `fit-content`,
               padding: `0 92px`,
+              paddingTop: `56px`,
             }}
           >
             <NavBar></NavBar>
@@ -70,7 +73,10 @@ const App = () => {
           >
             <Routes>
               <Route exact path="/" element={<AboutMe />}></Route>
-              <Route exact path="/studys" element={<Studys/>}></Route>
+              <Route exact path="/studys" element={<Studys />}></Route>
+              <Route exact path="/habilities" element={<Habilities />}></Route>
+              <Route exact path="/projects" element={<Projects />}></Route>
+              <Route exact path="/contact" element={<Contact />}></Route>
             </Routes>
           </main>
           <Footer></Footer>

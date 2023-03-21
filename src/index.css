@@ -7,7 +7,9 @@
 body {
   overflow-y: scroll;
   scroll-behavior: smooth;
+  max-width: 1600px;
 
+  margin: 0 auto;
 }
 /* Fuentes */
 

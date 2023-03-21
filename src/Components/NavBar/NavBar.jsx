@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-
+import Modal from "../Modal/Modal";
 // Style
 import styled from "styled-components";
 import Theme from "../Theme/Theme";
@@ -29,10 +29,14 @@ const Nav = styled.nav`
   align-items: center;
 `;
 
-const NavBar = (props) => {
+const NavBar = () => {
   const location = useLocation();
   console.log(`location->`, location.pathname);
 
+  // Modal
+  const [openModal, setOpenModal] = useState(false);
+  const [titleDialog, setTitleDialog] = useState(``);
+  const [textDialog, setTextDialog] = useState(``);
   // Array de objetos de botones
   const buttonsNav = [
     {
@@ -74,8 +78,11 @@ const NavBar = (props) => {
       bgColor: "lightPink",
       text: "Curriculum",
       icon: <MdOutlineFileDownload />,
-      link: `/resume`,
+      href: "cv.pdf",
       id: `resume`,
+      titleDialog: `Curriculum Vitae`,
+      textDialog: `¿Deseas ir a una pestaña nueva para ver mi curriculum en formato PDF?`,
+      dialog: `true`,
     },
   ];
   const [sectionSelected, setSectionSelected] = useState(location.pathname);
@@ -89,8 +96,15 @@ const NavBar = (props) => {
       key={`ButtonNav` + button.text + button.bgColor}
       link={button.link}
       id={button.id}
-      setterSection={setSectionSelected}
+      dialog={button.dialog}
       sectionSelected={sectionSelected}
+      setterTextDialog={setTextDialog}
+      setterTitleDialog={setTitleDialog}
+      setterSection={setSectionSelected}
+      setterModal={setOpenModal}
+      openModal={openModal}
+      titleDialog={button.titleDialog}
+      textDialog={button.textDialog}
     ></ButtonNav>
   ));
   return (
@@ -108,6 +122,12 @@ const NavBar = (props) => {
       </div>
       <SwitchMode></SwitchMode>
       <DropDown></DropDown>
+      <Modal
+        setterModal={setOpenModal}
+        openModal={openModal}
+        titleDialog={titleDialog}
+        textDialog={textDialog}
+      ></Modal>
     </Nav>
   );
 };

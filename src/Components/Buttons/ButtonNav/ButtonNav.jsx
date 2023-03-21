@@ -13,6 +13,13 @@ const ButtonNav = ({
   setterSection,
   sectionSelected,
   id,
+  dialog,
+  titleDialog,
+  textDialog,
+  setterModal,
+  openModal,
+  setterTitleDialog,
+  setterTextDialog,
 }) => {
   const ButtonNav = styled.button`
     background-color: "";
@@ -26,7 +33,7 @@ const ButtonNav = ({
 
     width: 100%;
     height: 100%;
-
+    white-space: nowrap;
     font-family: "Roboto";
     font-style: normal;
     font-weight: 500;
@@ -49,6 +56,21 @@ const ButtonNav = ({
         propsTheme.theme.light.colors[bgColor]};
     }
   `;
+  const onClickFx = () => {
+    link && setterSection(link);
+    const dialogSetter = () => {
+      setterModal(!openModal);
+      setterTitleDialog(titleDialog);
+      setterTextDialog(textDialog);
+    };
+    dialog && dialogSetter();
+  };
+  const changeState = () => {
+    if (link) {
+      return sectionSelected === link ? `selected` : ``;
+    }
+    return;
+  };
   return (
     <Link
       to={link}
@@ -59,10 +81,7 @@ const ButtonNav = ({
         height: `100%`,
       }}
     >
-      <ButtonNav
-        onClick={() => setterSection(link)}
-        className={sectionSelected === link ? `selected` : ``}
-      >
+      <ButtonNav onClick={() => onClickFx()} className={changeState()}>
         {icon}
         <p>{text}</p>
       </ButtonNav>

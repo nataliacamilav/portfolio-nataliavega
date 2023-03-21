@@ -19,7 +19,7 @@ const light = {
     darkYellow: `#EED500`,
     yellow: `#FFD600`,
     lightYellow: `#FFF3B4`,
-    lighterYellow: `#F9F8EE`, 
+    lighterYellow: `#F9F8EE`,
 
     // Purple
     darkerPurple: ``,
@@ -44,11 +44,10 @@ const light = {
     darkGrey: ``,
     grey: `#2EE400`,
     lightGrey: `#c9c9c9`,
-    
-
 
     // Text
     text: `#151515`,
+    error: `#FF5449`,
   },
   fonts: ["sans-serif", "Roboto"],
   fontSizes: {

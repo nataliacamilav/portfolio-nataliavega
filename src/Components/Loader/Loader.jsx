@@ -53,7 +53,6 @@ const Loader = ({ heightDynamic, valueTop }) => {
     animation: ${infiniteLoop} 10s linear infinite;
 
     .avatarImg {
-      
       height: 500px;
       align-self: end;
     }
@@ -75,9 +74,15 @@ const Loader = ({ heightDynamic, valueTop }) => {
     color: #653939;
     font-size: 32px;
   `;
+  const PushDiv = styled.div`
+    height: 500px;
+    width: 333px;
+  `;
+
   return (
     <LoaderContainer>
       <Section>
+        <img src="assets/avatar.gif" alt="" className="avatarImg" />
         <TextContainer>
           <H1>
             Natalia Vega
@@ -87,7 +92,7 @@ const Loader = ({ heightDynamic, valueTop }) => {
           </H1>
           <DynamicSkills />
         </TextContainer>
-        <img src="assets/avatar.gif" alt="" className="avatarImg" />
+        <PushDiv></PushDiv>
       </Section>
     </LoaderContainer>
   );

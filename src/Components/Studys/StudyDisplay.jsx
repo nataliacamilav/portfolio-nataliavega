@@ -3,7 +3,6 @@ import React from "react";
 
 // Style
 import styled from "styled-components";
-import StudyItem from "./StudyItem";
 import { MdOutlineClose } from "react-icons/md";
 const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
   const Container = styled.article`
