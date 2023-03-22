@@ -138,7 +138,6 @@ const Studys = () => {
   const findStudySelected = studyCollection.find((study) => {
     if (studySelected && studySelected === study.degree) return study;
   });
-  console.log(findStudySelected);
 
   return (
     <Container>

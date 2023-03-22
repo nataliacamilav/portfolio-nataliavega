@@ -307,12 +307,11 @@ const Projects = () => {
         `Pruebas de usabilidad.`,
         `Elaboración de UI kit y Atomic Design.`,
       ],
-      link: `https://nereidas-cruceros.vercel.app/`,
+      behance: `https://www.behance.net/gallery/142527049/Share-Natalia-Vega`,
       comment: `Proyecto integrador asociado a “Diseño web - NUCBA”`,
     },
   ];
   const [filterSelected, setFilterSelected] = useState(`all`);
-  console.log(filterSelected);
   const renderFilters = filters.map((item) => (
     <FilterItem
       filterType={item.filterType}
@@ -351,7 +350,6 @@ const Projects = () => {
           project.skillsTag.some((e) => e === filterSelected)
         );
       });
-      console.log(filterProjects);
       return renderProjects(filterProjects);
     }
   };

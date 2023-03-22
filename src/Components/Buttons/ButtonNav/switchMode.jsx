@@ -4,7 +4,7 @@ import React, { useState } from "react";
 // Style
 import styled, { css, keyframes } from "styled-components";
 
-const SwitchMode = () => {
+const SwitchMode = ({ stateMenu }) => {
   const [mode, setMode] = useState(false);
 
   const Contenedor = styled.div`
@@ -20,7 +20,6 @@ const SwitchMode = () => {
     position: relative;
     cursor: pointer;
     transition: all 5s linear;
-    
 
     &:after {
       position: absolute;
@@ -35,6 +34,9 @@ const SwitchMode = () => {
         : `assets/whiteStars.svg`});
 
       transition: background 5s linear;
+    }
+    @media (max-width: 960px) {
+      display: ${stateMenu ? `flex` : `none`};
     }
   `;
   const MoonSun = styled.div`

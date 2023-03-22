@@ -11,11 +11,23 @@ import { IoMail } from "react-icons/io5";
 const Contact = () => {
   const Container = styled.section`
     width: 100%;
+    
     padding-top: 32px;
-    padding-bottom: 72px;
+
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
 
+    & img {
+      align-self: center;
+      width: 350px;
+      object-fit: cover;
+    }
+  `;
+  const ContactTextContainer = styled.div`
+    display: flex;
+    flex-direction: column;
     gap: 32px;
   `;
   const H2 = styled.h2`
@@ -23,7 +35,7 @@ const Contact = () => {
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    
+
     color: ${(propsTheme) => propsTheme.theme.light.colors.purple};
   `;
   const H3 = styled.h3`
@@ -80,13 +92,17 @@ const Contact = () => {
   ));
   return (
     <Container>
-      <H2>Contacto</H2>
-      <H3>¡Muchas gracias por visitar mi portfolio!</H3>
-      <H4>
-        Si te gustó mi trabajo no dudes en contactarme a través de mis redes
-        sociales.
-      </H4>
-      <SocialMediaContainer>{renderSocialMedia}</SocialMediaContainer>
+      <ContactTextContainer>
+        <H2>Contacto</H2>
+        <H3>¡Muchas gracias por visitar mi portfolio!</H3>
+        <H4>
+          Si te gustó mi trabajo no dudes en contactarme a través de mis redes
+          sociales.
+        </H4>
+        <SocialMediaContainer>{renderSocialMedia}</SocialMediaContainer>
+      </ContactTextContainer>
+
+      <img src="assets/avatar.gif" alt="" className="avatarImg" />
     </Container>
   );
 };

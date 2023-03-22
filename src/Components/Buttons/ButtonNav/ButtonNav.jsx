@@ -20,17 +20,17 @@ const ButtonNav = ({
   openModal,
   setterTitleDialog,
   setterTextDialog,
+  setterMenu,
+  stateMenu
 }) => {
   const ButtonNav = styled.button`
     background-color: "";
-
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px 16px;
     gap: 8px;
     border-radius: 100px;
-
     width: 100%;
     height: 100%;
     white-space: nowrap;
@@ -55,9 +55,17 @@ const ButtonNav = ({
       background-color: ${(propsTheme) =>
         propsTheme.theme.light.colors[bgColor]};
     }
+
+  `;
+  const LinkButton = styled.div`
+    textdecoration: none;
+    color: none;
+    width: 100%;
+    height: 52px;
   `;
   const onClickFx = () => {
     link && setterSection(link);
+    setterMenu(!stateMenu)
     const dialogSetter = () => {
       setterModal(!openModal);
       setterTitleDialog(titleDialog);
@@ -72,20 +80,22 @@ const ButtonNav = ({
     return;
   };
   return (
-    <Link
-      to={link}
-      style={{
-        textDecoration: `none`,
-        color: `none`,
-        width: `100%`,
-        height: `100%`,
-      }}
-    >
-      <ButtonNav onClick={() => onClickFx()} className={changeState()}>
-        {icon}
-        <p>{text}</p>
-      </ButtonNav>
-    </Link>
+    <LinkButton>
+      <Link
+        to={link}
+        style={{
+          textDecoration: `none`,
+          color: `none`,
+          width: `100%`,
+          height: `100%`,
+        }}
+      >
+        <ButtonNav onClick={() => onClickFx()} className={changeState()}>
+          {icon}
+          <p>{text}</p>
+        </ButtonNav>
+      </Link>
+    </LinkButton>
   );
 };
 

@@ -26,6 +26,35 @@ const App = () => {
   min-height: 100vh;
   color: ${(props) => props.theme.light.colors.text};
 `;
+  const Header = styled.header`
+    width: 100%;
+    height: fit-content;
+    padding: 0 92px;
+    padding-top: 56px;
+    @media (max-width: 1280px) {
+      padding: 56px 32px 0;
+    }
+    @media (max-width: 960px) {
+      padding: 16px;
+    }
+  `;
+  const Main = styled.main`
+    width: 100%;
+    min-height: ${heightDynamic};
+    height: ${heightDynamic === `100vh` ? `auto` : `100px`};
+    overflow-y: ${heightDynamic === `100vh` ? `visible` : `hidden`};
+    padding: 0 122px;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    align-items: center;
+    @media (max-width: 1280px) {
+      padding: 0 56px;
+    }
+    @media (max-width: 500px) {
+      padding: 0 24px;
+    }
+  `;
   // UseEffect para Loader
   useEffect(() => {
     setTimeout(() => {
@@ -48,29 +77,10 @@ const App = () => {
         <Loader valueTop={valueTop} />
 
         <BrowserRouter>
-          <header
-            style={{
-              width: `100%`,
-              height: `fit-content`,
-              padding: `0 92px`,
-              paddingTop: `56px`,
-            }}
-          >
+          <Header>
             <NavBar></NavBar>
-          </header>
-          <main
-            style={{
-              width: `100%`,
-              minHeight: heightDynamic,
-              height: heightDynamic === `100vh` ? `auto` : `100px`,
-              overflowY: heightDynamic === `100vh` ? `visible` : `hidden`,
-              padding: `0 122px`,
-              display: `flex`,
-              flexDirection: `column`,
-              gap: `72px`,
-              alignItems: "center",
-            }}
-          >
+          </Header>
+          <Main>
             <Routes>
               <Route exact path="/" element={<AboutMe />}></Route>
               <Route exact path="/studys" element={<Studys />}></Route>
@@ -78,7 +88,7 @@ const App = () => {
               <Route exact path="/projects" element={<Projects />}></Route>
               <Route exact path="/contact" element={<Contact />}></Route>
             </Routes>
-          </main>
+          </Main>
           <Footer></Footer>
         </BrowserRouter>
       </App>

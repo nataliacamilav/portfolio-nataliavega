@@ -6,7 +6,7 @@ import styled, { css, keyframes } from "styled-components";
 import Options from "./Options";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const DropDown = () => {
+const DropDown = ({stateMenu}) => {
   const [dropdown, setDropdown] = useState(false);
 
   const [language, setLanguage] = useState("ES");
@@ -15,6 +15,12 @@ const DropDown = () => {
     display: flex;
     flex-direction: column;
     position: relative;
+    @media (max-width: 960px) {
+      display: ${stateMenu ? `flex` : `none`};
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
   `;
   const OptionsContainer = styled.div`
     background-color: ${(propsTheme) => propsTheme.theme.light.colors.bgNavBar};
@@ -39,7 +45,6 @@ const DropDown = () => {
     },
   ];
 
-  console.log(language);
   // Renderizado de options
   const renderOptions = languageSettings.map((option) => (
     <Options

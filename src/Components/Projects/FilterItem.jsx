@@ -66,7 +66,6 @@ const FilterItem = ({ filterType, filter, setterFilter, filterSelected }) => {
       {e.name}
     </FilterP>
   ));
-  console.log("fitlerSelected", filterSelected);
   return (
     <Container>
       <H4>{filterType}</H4>

@@ -89,7 +89,6 @@ const StudyItem = ({
       propsTheme.theme.light.colors.darkYellow};
   `;
 
-  console.log(studySelected);
   const activateDisplay = () => {
     !project || !credential
       ? setterStudySelected(undefined)

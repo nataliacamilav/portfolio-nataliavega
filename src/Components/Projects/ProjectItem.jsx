@@ -130,7 +130,6 @@ const ProjectItem = ({
       font-family: "Roboto";
       font-style: normal;
       font-weight: 400;
-      font-size: 16px;
       color: ${(props) => props.theme.light.colors.text};
       overflow: hidden;
       text-overflow: ellipsis;
@@ -144,7 +143,13 @@ const ProjectItem = ({
     font-size: 16px;
     width: 100%;
   `;
-
+  const IconContainer = styled.div`
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    font-size_ 16px;
+  `;
   const renderFilterTags = filterTag.map((e) => (
     <FilterTags color={e.color}>{e.name}</FilterTags>
   ));
@@ -172,7 +177,9 @@ const ProjectItem = ({
           <AContainer>
             {gitHub && (
               <Anchor>
-                <BsGithub />
+                <IconContainer>
+                  <BsGithub />
+                </IconContainer>
                 <a href={gitHub} target="_blank">
                   {gitHub}
                 </a>
@@ -180,7 +187,9 @@ const ProjectItem = ({
             )}
             {behance && (
               <Anchor>
-                <ImBehance2 />
+                <IconContainer>
+                  <ImBehance2 />
+                </IconContainer>
                 <a href={behance} target="_blank">
                   {behance}
                 </a>
@@ -188,7 +197,9 @@ const ProjectItem = ({
             )}
             {link && (
               <Anchor>
-                <MdOutlineLink />
+                <IconContainer>
+                  <MdOutlineLink />
+                </IconContainer>
                 <a href={link} target="_blank">
                   {link}
                 </a>

@@ -10,8 +10,6 @@ const Options = ({ text, img, icon, id, setterLanguage }) => {
     display: flex;
     gap: 4px;
 
-    align-items: center;
-
     font-family: "Roboto", sans-serif;
     font-family: "Roboto";
     font-style: normal;
@@ -20,15 +18,19 @@ const Options = ({ text, img, icon, id, setterLanguage }) => {
     font-variant: all-small-caps;
 
     align-items: center;
-    justify-center: center;
+    justify-content: center;
 
     padding: 0 16px;
     height: 52px;
     width: 90px;
     border-radius: 100px;
     background-color: "";
-    
+
     cursor: pointer;
+
+    @media (max-width: 960px) {
+      width: 100%;
+    }
     &:hover {
       background-color: ${(propsTheme) =>
         propsTheme.theme.light.colors.lightGrey};
