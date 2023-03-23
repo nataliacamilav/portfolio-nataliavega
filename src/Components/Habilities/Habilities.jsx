@@ -14,6 +14,10 @@ const Habilities = () => {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    @media (max-width: 960px) {
+      padding-top: 56px;
+      
+    }
   `;
   const H2 = styled.h2`
     font-family: "Convergence";

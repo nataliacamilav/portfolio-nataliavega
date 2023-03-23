@@ -14,6 +14,12 @@ const Container = styled.div`
   & + & {
     padding-left: 16px;
     border-left: #207fb4 1px solid;
+    @media (max-width: 600px) {
+      padding-left: 0;
+      border-left: none;
+      padding-top: 16px;
+      border-top: #207fb4 1px solid;
+    }
   }
 `;
 const H4 = styled.h4`

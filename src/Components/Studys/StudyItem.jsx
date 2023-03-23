@@ -23,6 +23,15 @@ const StudyItem = ({
     gap: 24px;
     height: 180px;
     align-items: center;
+    @media (max-width: 720px) {
+      width: 100%;
+      gap: 24px;
+    }
+    @media (max-width: 570px) {
+      width: 100%;
+      height: 300px;
+      gap: 24px;
+    }
   `;
   const DateLine = styled.div`
     display: flex;
@@ -30,7 +39,11 @@ const StudyItem = ({
 
     align-items: center;
     height: 100%;
-    width: 68px;
+    width: 58px;
+    @media (max-width: 570px) {
+      align-items: start;
+      width: 3px;
+    }
   `;
   const StudyInfoContainer = styled.div`
     display: flex;
@@ -51,6 +64,20 @@ const StudyItem = ({
     .arrowRight {
       color: ${(props) => props.theme.light.colors.darkerYellow};
       font-size: 24px;
+
+      @media (max-width: 570px) {
+        transform: rotate(90deg);
+      }
+    }
+
+    @media (max-width: 960px) {
+      min-width: 320px;
+    }
+    @media (max-width: 570px) {
+      min-width: 200px;
+      width: calc(300px - 24px - 8px);
+      height: fit-content;
+      flex-direction: column;
     }
   `;
   const TextContainer = styled.div`
@@ -58,6 +85,10 @@ const StudyItem = ({
     flex-direction: column;
     gap: 8px;
     width: 270px;
+    @media (max-width: 570px) {
+      width: 100%;
+      text-align: center;
+    }
   `;
   const H3 = styled.h3`
     font-family: "Roboto";
@@ -103,7 +134,9 @@ const StudyItem = ({
       </DateLine>
       <StudyInfoContainer
         onClick={() => activateDisplay()}
-        style={(project || credential) ? { cursor: "pointer" } : {cursor: "default"}}
+        style={
+          project || credential ? { cursor: "pointer" } : { cursor: "default" }
+        }
       >
         <img
           src={`assets/` + schoolLogo}

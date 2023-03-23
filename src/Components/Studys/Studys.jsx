@@ -99,12 +99,22 @@ const Studys = () => {
     display: flex;
     flex-direction: column;
     gap: 32px;
+    @media (max-width: 960px) {
+      padding-top: 56px;
+    }
+    @media (max-width: 720px) {
+      padding-top: 56px;
+    }
   `;
   const StudyDisplayContainer = styled.div`
     display: flex;
     gap: 16px;
     width: 100%;
     justify-content: space-between;
+    @media (max-width: 960px) {
+      width: 100%;
+      justify-content: center;
+    }
   `;
   const H2 = styled.h2`
     font-family: "Convergence";
@@ -116,7 +126,11 @@ const Studys = () => {
   const StudysContainer = styled.article`
     display: flex;
     flex-direction: column;
+    justify-self: start;
     width: fit-content;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
   `;
   const [studySelected, setStudySelected] = useState();
   const renderStudys = studyCollection.map((study) => (

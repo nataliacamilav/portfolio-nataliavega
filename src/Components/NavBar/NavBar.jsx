@@ -20,15 +20,18 @@ import ButtonNav from "../Buttons/ButtonNav/ButtonNav";
 import SwitchMode from "../Buttons/ButtonNav/switchMode";
 import DropDown from "../Dropdown/DropDown";
 
-const NavBar = () => {
+const NavBar = ({
+  setterText,
+  setterTitle,
+  setterModal,
+  openModal,
+  titleDialog,
+  textDialog,
+}) => {
   const location = useLocation();
-  // Modal
-  const [openModal, setOpenModal] = useState(false);
-  const [titleDialog, setTitleDialog] = useState(``);
-  const [textDialog, setTextDialog] = useState(``);
 
   const [sectionSelected, setSectionSelected] = useState(location.pathname);
-  const [open, setStateMenu] = useState(true);
+  const [open, setStateMenu] = useState(false);
   const Nav = styled.nav`
     width: 100%;
     height: 52px;
@@ -50,7 +53,8 @@ const NavBar = () => {
       justify-content: ${open ? `start` : `center`};
     }
     @media (max-width: 500px) {
-      width: ${open ? `calc(100% - 32px)` : `56px`};
+      max-width: ${open ? `calc(100% - 32px)` : `56px`};
+      width: ${open ? `100%` : `56px`};
     }
   `;
   const MenuIconContainer = styled.div`
@@ -138,10 +142,10 @@ const NavBar = () => {
       id={button.id}
       dialog={button.dialog}
       sectionSelected={sectionSelected}
-      setterTextDialog={setTextDialog}
-      setterTitleDialog={setTitleDialog}
+      setterTextDialog={setterText}
+      setterTitleDialog={setterTitle}
       setterSection={setSectionSelected}
-      setterModal={setOpenModal}
+      setterModal={setterModal}
       openModal={openModal}
       titleDialog={button.titleDialog}
       textDialog={button.textDialog}
@@ -154,25 +158,19 @@ const NavBar = () => {
       <MenuIconContainer className="closeMenu">
         {open ? (
           <CgClose
-            style={{ cursor: `pointer`, height: `100%`}}
+            style={{ cursor: `pointer`, height: `100%` }}
             onClick={() => setStateMenu(!open)}
           />
         ) : (
           <CgMenu
-            style={{ cursor: `pointer`, height: `100%`,}}
+            style={{ cursor: `pointer`, height: `100%` }}
             onClick={() => setStateMenu(!open)}
           />
         )}
       </MenuIconContainer>
       <ButtonNavContainer>{renderButtons}</ButtonNavContainer>
       <SwitchMode stateMenu={open}></SwitchMode>
-      <DropDown></DropDown>
-      <Modal
-        setterModal={setOpenModal}
-        openModal={openModal}
-        titleDialog={titleDialog}
-        textDialog={textDialog}
-      ></Modal>
+      <DropDown stateMenu={open}></DropDown>
     </Nav>
   );
 };

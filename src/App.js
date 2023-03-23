@@ -16,7 +16,13 @@ import Studys from "./Components/Studys/Studys";
 import Habilities from "./Components/Habilities/Habilities";
 import Contact from "./Components/Contacto/Contact";
 import Projects from "./Components/Projects/Projects";
+import Modal from "./Components/Modal/Modal";
 const App = () => {
+  // Modal
+  const [openModal, setOpenModal] = useState(false);
+  const [titleDialog, setTitleDialog] = useState(``);
+  const [textDialog, setTextDialog] = useState(``);
+
   // CAmbios dinamicos de Loader
   const [heightDynamic, setheightDynamic] = useState(`100px`);
   const [valueTop, setValueTop] = useState(0);
@@ -75,10 +81,21 @@ const App = () => {
       <App>
         {/* Loader dinamico */}
         <Loader valueTop={valueTop} />
-
+        <Modal
+          setterModal={setOpenModal}
+          openModal={openModal}
+          titleDialog={titleDialog}
+          textDialog={textDialog}
+        ></Modal>
         <BrowserRouter>
           <Header>
-            <NavBar></NavBar>
+            <NavBar
+            setterText={setTextDialog}
+            setterTitle={setTitleDialog}
+            setterModal={setOpenModal}
+            openModal={openModal}
+            titleDialog={titleDialog}
+            textDialog={textDialog}></NavBar>
           </Header>
           <Main>
             <Routes>

@@ -12,6 +12,9 @@ const Container = styled.section`
   display: flex;
   flex-direction: column;
   gap: 32px;
+  @media (max-width: 960px) {
+    padding-top: 56px;
+  }
 `;
 
 const FilterContainer = styled.article`
@@ -22,6 +25,9 @@ const FilterContainer = styled.article`
 const FilterItemContainer = styled.article`
   display: flex;
   gap: 32px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 const H2 = styled.h2`
   font-family: "Convergence";

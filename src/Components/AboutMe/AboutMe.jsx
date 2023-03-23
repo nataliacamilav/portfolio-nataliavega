@@ -17,8 +17,12 @@ const AboutMe = () => {
     display: flex;
     flex-direction: column;
     gap: 32px;
-  `;
-  const H2 = styled.h2`
+    @media (max-width: 960px) {
+      padding-top: 56px;
+      
+    }
+    `;
+    const H2 = styled.h2`
     font-family: "Convergence";
     font-style: normal;
     font-weight: 400;
@@ -54,6 +58,10 @@ const AboutMe = () => {
     width: 100%;
     display: flex;
     gap: 24px;
+    @media (max-width: 720px) {
+      flex-direction: column;
+      align-items: center;
+    }
   `;
 
   const Paragraph = styled.div`

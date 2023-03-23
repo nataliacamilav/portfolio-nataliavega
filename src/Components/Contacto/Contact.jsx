@@ -11,7 +11,7 @@ import { IoMail } from "react-icons/io5";
 const Contact = () => {
   const Container = styled.section`
     width: 100%;
-    
+
     padding-top: 32px;
 
     display: flex;
@@ -23,6 +23,13 @@ const Contact = () => {
       align-self: center;
       width: 350px;
       object-fit: cover;
+      @media (max-width: 960px) {
+        width:250px;
+        
+      }
+    }
+    @media (max-width: 960px) {
+      padding-top: 56px;
     }
   `;
   const ContactTextContainer = styled.div`
@@ -59,6 +66,10 @@ const Contact = () => {
     justify-content: center;
     gap: 16px;
     width: 660px;
+    @media (max-width: 960px) {
+      width:100%;
+      
+    }
   `;
   const socialMediaCollection = [
     // Linkedin

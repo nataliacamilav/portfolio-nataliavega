@@ -70,6 +70,7 @@ const ProjectItem = ({
   const TagsContainer = styled.div`
     display: flex;
     gap: 16px;
+    flex-flow: row wrap;
   `;
   const SkillTag = styled.p`
     font-family: "Roboto";
@@ -93,6 +94,17 @@ const ProjectItem = ({
       border-radius: 4px;
       height: 300px;
       object-fit: cover;
+      
+      @media (max-width: 1080px) {
+        height: auto;
+        width: 100%;
+        max-width: 700px;
+        object-fit: cover;
+        align-self: center;
+      }
+    }
+    @media (max-width: 1080px) {
+      flex-direction: column;
     }
   `;
   const ColumnContainer = styled.div`
@@ -100,6 +112,9 @@ const ProjectItem = ({
     flex-direction: column;
     gap: 16px;
     width: 40%;
+    @media (max-width: 1080px) {
+      width: 100%;
+    }
   `;
   const TextContainer = styled.div`
     display: flex;

@@ -14,11 +14,23 @@ const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    width: 500px;
+    width: 100%;
     height: fit-content;
     border-radius: 16px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15), 1px 4px 4px rgba(0, 0, 0, 0.2);
     padding: 24px;
+    max-width: 400px;
+    & p {
+      width: 100%;
+      text-align: center;
+      @media (max-width: 960px) {
+        width: 250px;
+      }
+    }
+    @media (max-width: 960px) {
+      top: 100px;
+      position: absolute;
+    }
   `;
   const Div = styled.div`
     display: flex;
@@ -28,9 +40,13 @@ const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
     width: 100%;
     img {
       width: 100%;
+
       box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.15);
       filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.2));
       border-radius: 7px;
+      @media (max-width: 960px) {
+        width: 250px;
+      }
     }
   `;
   return (

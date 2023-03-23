@@ -24,17 +24,18 @@ const Loader = ({ heightDynamic, valueTop }) => {
   `;
   // Loader Container
   const LoaderContainer = styled.div`
-  
-  width: 100%;
-  height: 100vh;
-  background: ${(props) => props.theme.light.colors.background};
-  position:absolute;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  top: ${valueTop};
-  left: 0;
-  }
+    width: 100%;
+    height: 100vh;
+    background: ${(props) => props.theme.light.colors.background};
+    position:absolute;
+    z-index: 5000;
+    display: flex;
+    justify-content: center;
+    top: ${valueTop};
+    left: 0;
+
+    
+    }
   `;
   // Section
   const Section = styled.section`
@@ -51,10 +52,17 @@ const Loader = ({ heightDynamic, valueTop }) => {
 
     font-family: "Convergence", sans-serif;
     animation: ${infiniteLoop} 10s linear infinite;
-
+    
+    @media (max-width: 500px) {
+      flex-direction: column-reverse;
+    }
     .avatarImg {
       height: 500px;
       align-self: end;
+      @media (max-width: 500px) {
+        align-self: center;
+        height: 400px;
+      }
     }
   `;
   const TextContainer = styled.div`
