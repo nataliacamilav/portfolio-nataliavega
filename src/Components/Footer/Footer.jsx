@@ -3,11 +3,13 @@ import React from "react";
 
 // Style
 import Theme from "../Theme/Theme";
-import styled, { css, keyframes } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { ImBehance2 } from "react-icons/im";
 import { IoMail } from "react-icons/io5";
 const Footer = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
   const Contenedor = styled.section`
     display: flex;
     flex-direction: column;
@@ -17,7 +19,7 @@ const Footer = () => {
     height: 144px;
     gap: 16px;
     padding: 32px 92px;
-    background-color: ${(props) => props.theme.light.colors.bgNavBar};
+    background-color: ${(props) => props.theme.mode.colors.bgNavBar};
     box-sizing: border-box;
     border-radius: 16px 16px 0 0;
   `;
@@ -34,19 +36,41 @@ const Footer = () => {
     gap: 8px;
     font-sixe: 16px;
 
-    .iconFooterHover {
+    .iconSocialMedia {
       cursor: pointer;
+      color: ${(props) => props.theme.mode.colors.text};
     }
   `;
+  const socialMediaCollection = [
+    // Linkedin
+    {
+      scname: `Natalia Camila Vega`,
+      icon: <BsLinkedin />,
+      link: `https://www.linkedin.com/in/nataliacamilavega/`,
+    },
+    {
+      scname: `nataliavega98`,
+      icon: <BsGithub />,
+      link: `https://github.com/nataliavega98`,
+    },
+    {
+      scname: `nataliavega98`,
+      icon: <ImBehance2 />,
+      link: `https://www.behance.net/nataliavega98`,
+    },
+    {
+      scname: `natalia.camila@hotmail.com`,
+      icon: <IoMail />,
+      link: `natalia.camila@hotmail.com`,
+    },
+  ];
+  const renderSocialMedia = socialMediaCollection.map((item) => (
+    <a href={item.link} className="iconSocialMedia" target="_blank">{item.icon}</a>
+  ));
   return (
     <Contenedor>
-      <RedesContain>
-        <ImBehance2 className="iconFooterHover" />
-        <BsGithub className="iconFooterHover" />
-        <BsLinkedin className="iconFooterHover" />
-        <IoMail style={{ fontSize: `20px` }} className="iconFooterHover" />
-      </RedesContain>
-      <P>Página diseñada y desarrolada por Natalia Vega</P>
+      <RedesContain>{renderSocialMedia}</RedesContain>
+      <P>{theme.lang.footer.p1}</P>
     </Contenedor>
   );
 };

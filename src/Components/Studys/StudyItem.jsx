@@ -17,6 +17,8 @@ const StudyItem = ({
   finishDate,
   studySelected,
   setterStudySelected,
+  gradeP,
+
 }) => {
   const Container = styled.div`
     display: flex;
@@ -48,7 +50,7 @@ const StudyItem = ({
   const StudyInfoContainer = styled.div`
     display: flex;
     gap: 8px;
-    background-color: ${(props) => props.theme.light.colors.lighterYellow};
+    background-color: ${(props) => props.theme.mode.colors.lighterYellow};
     border-radius: 7px;
     min-width: 420px;
     height: 100px;
@@ -58,11 +60,13 @@ const StudyItem = ({
     cursor: pointer;
     .imgLogo {
       border-radius: 7px;
-
+      width: 68px;
       height: 68px;
+      object-fit: cover;
+      object-position: center;
     }
     .arrowRight {
-      color: ${(props) => props.theme.light.colors.darkerYellow};
+      color: ${(props) => props.theme.mode.colors.darkYellow};
       font-size: 24px;
 
       @media (max-width: 570px) {
@@ -117,7 +121,7 @@ const StudyItem = ({
     width: 3px;
     border-radius: 5px;
     background-color: ${(propsTheme) =>
-      propsTheme.theme.light.colors.darkYellow};
+      propsTheme.theme.mode.colors.darkYellow};
   `;
 
   const activateDisplay = () => {
@@ -146,7 +150,13 @@ const StudyItem = ({
         <TextContainer>
           <H3>{school}</H3>
           <H4>
-            {degree} - <Italic>Titulación: {grade}</Italic>{" "}
+            {degree}
+            {grade && (
+              <Italic>
+                {" "}
+                - {gradeP}: {grade}
+              </Italic>
+            )}
           </H4>
         </TextContainer>
         {(project || credential) && (

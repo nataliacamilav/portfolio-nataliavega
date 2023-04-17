@@ -1,7 +1,7 @@
 // React Imports
 import React, { useEffect, useState } from "react";
 // Style
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 
 //   STYLED COMPONENTS
 
@@ -12,7 +12,7 @@ const P = styled.p`
   justify-content: center;
   align-items: center;
 
-  color: #653939;
+  color: ${(props) => props.theme.mode.loaderAnimated.text1};
   font-size: 16px;
 `;
 const DynamicSkills = () => {

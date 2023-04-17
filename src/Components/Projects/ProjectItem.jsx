@@ -18,6 +18,7 @@ const ProjectItem = ({
   link,
   comment,
   id,
+  skillsP
 }) => {
   const isPar = () => {
     let valid = false;
@@ -33,14 +34,14 @@ const ProjectItem = ({
     flex-direction: column;
     padding: 24px 0;
     gap: 16px;
-    border-top: 1px solid ${(props) => props.theme.light.colors.blue};
+    border-top: 1px solid ${(props) => props.theme.mode.colors.blue};
   `;
   const Title = styled.h4`
     font-family: "Roboto";
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    color: ${(props) => props.theme.light.colors.blue};
+    color: ${(props) => props.theme.mode.colors.blue};
   `;
   const Subtitle = styled.p`
     font-family: "Roboto";
@@ -56,7 +57,7 @@ const ProjectItem = ({
     font-size: 14px;
   `;
   const FilterTags = styled.p`
-    background-color: ${(props) => props.theme.light.colors[props.color]};
+    background-color: ${(props) => props.theme.mode.colors[props.color]};
     width: fit-content;
     height: fit-content;
     font-family: "Roboto";
@@ -71,6 +72,8 @@ const ProjectItem = ({
     display: flex;
     gap: 16px;
     flex-flow: row wrap;
+    color:  #151515;
+
   `;
   const SkillTag = styled.p`
     font-family: "Roboto";
@@ -82,7 +85,8 @@ const ProjectItem = ({
     white-space: nowrap;
     width: fit-content;
     height: fit-content;
-    background-color: ${(props) => props.theme.light.colors.lightBlue};
+    color:  #151515;
+    background-color: ${(props) => props.theme.mode.colors.lightBlue};
   `;
   const CardContainer = styled.div`
     display: flex;
@@ -145,7 +149,7 @@ const ProjectItem = ({
       font-family: "Roboto";
       font-style: normal;
       font-weight: 400;
-      color: ${(props) => props.theme.light.colors.text};
+      color: ${(props) => props.theme.mode.colors.text};
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -169,6 +173,7 @@ const ProjectItem = ({
     <FilterTags color={e.color}>{e.name}</FilterTags>
   ));
   const renderSkillTags = skillsTag.map((e) => <SkillTag>{e}</SkillTag>);
+
   const renderText = text.map((e) => (
     <PList>
       <BsStars style={{ color: `#ffc107` }} />
@@ -186,7 +191,7 @@ const ProjectItem = ({
         <img src={`assets/` + image} alt={`imagen de` + title} />
         <ColumnContainer>
           <TextContainer>
-            <p>Habilidades desarrolladas</p>
+            <p>{skillsP}:</p>
             {renderText}
           </TextContainer>
           <AContainer>

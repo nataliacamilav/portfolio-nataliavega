@@ -24,7 +24,7 @@ const SoftItem = ({ thname, icon }) => {
   return (
     <Container>
       <BsStars style={{color: `#ffc107`}}/>
-      <P>{thname}</P>
+      <P>{thname}.</P>
     </Container>
   );
 };

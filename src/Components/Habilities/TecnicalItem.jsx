@@ -15,6 +15,9 @@ const tecnicalItem = ({ thname, icon }) => {
     img {
       max-height: 54px;
     }
+    .filter {
+      filter: ${(props) => props.theme.mode.filterInvert};
+    }
   `;
   const P = styled.p`
     font-family: "Roboto";
@@ -25,9 +28,22 @@ const tecnicalItem = ({ thname, icon }) => {
     padding: 0 8px;
     text-align: center;
   `;
+  const equalTo = (value, skill) => {
+    return value == skill;
+  };
   return (
     <Container>
-      <img src={`assets/` + icon} alt={`imagen de` + thname} />
+      <img
+        src={`assets/` + icon}
+        alt={`imagen de` + thname}
+        className={
+          equalTo(thname, `github`) ||
+          equalTo(thname, `git`) ||
+          equalTo(thname, `styled components`)
+            ? `filter`
+            : ``
+        }
+      />
       <P>{thname}</P>
     </Container>
   );

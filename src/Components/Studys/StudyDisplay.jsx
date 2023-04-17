@@ -4,18 +4,27 @@ import React from "react";
 // Style
 import styled from "styled-components";
 import { MdOutlineClose } from "react-icons/md";
-const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
+const StudyDisplay = ({
+  infoStudySelected,
+  setterStudySelected,
+  certificateP,
+  projectP,
+  gotoP,
+}) => {
   const Container = styled.article`
-    background-color: white;
+    background: ${(props) => props.theme.mode.colors.bgNavBar};
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 8px;
     width: 100%;
-    height: fit-content;
+    max-height: 500px;
+    height: 70vh;
+    position: fixed;
+    right: 72px;
     border-radius: 16px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.15), 1px 4px 4px rgba(0, 0, 0, 0.2);
     padding: 24px;
@@ -23,29 +32,35 @@ const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
     & p {
       width: 100%;
       text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       @media (max-width: 960px) {
         width: 250px;
       }
     }
     @media (max-width: 960px) {
       top: 100px;
-      position: absolute;
+      right: unset;
+      position: fixed;
+      height: fit-content;
+      width: 90%;
     }
   `;
   const Div = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 4px;
     width: 100%;
     img {
-      width: 100%;
+      width: 240px;
 
       box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.15);
       filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.2));
       border-radius: 7px;
       @media (max-width: 960px) {
-        width: 250px;
+        width: 240px;
       }
     }
   `;
@@ -62,19 +77,18 @@ const StudyDisplay = ({ infoStudySelected, setterStudySelected }) => {
         <MdOutlineClose onClick={() => setterStudySelected(undefined)} />
       </div>
       <Div>
-        <p>Certificado</p>
+        <p>{certificateP}</p>
         <img
           src={`assets/` + infoStudySelected.credential}
           alt={`certificado de` + infoStudySelected.degree}
         />
       </Div>
       <Div>
-        <p>Proyecto</p>
+        <p>{projectP}</p>
         <img src={`assets/` + infoStudySelected.project} alt="Proyecto" />
         <p>
-          Ir a:
+          {gotoP}:
           <a href={infoStudySelected.link} target="_blank">
-            {" "}
             {infoStudySelected.link}
           </a>
         </p>

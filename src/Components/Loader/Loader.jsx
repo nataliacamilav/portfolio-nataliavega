@@ -26,7 +26,7 @@ const Loader = ({ heightDynamic, valueTop }) => {
   const LoaderContainer = styled.div`
     width: 100%;
     height: 100vh;
-    background: ${(props) => props.theme.light.colors.background};
+    background: ${(props) => props.theme.mode.loaderAnimated.bgColor};
     position:absolute;
     z-index: 5000;
     display: flex;
@@ -39,7 +39,8 @@ const Loader = ({ heightDynamic, valueTop }) => {
   `;
   // Section
   const Section = styled.section`
-    background: url(assets/pinkClouds.svg) repeat-x;
+    background: url(assets/${(props) =>
+      props.theme.mode.loaderAnimated.vectorAnimated}) repeat-x;
     width: 100%;
     height: 100%;
 
@@ -57,6 +58,7 @@ const Loader = ({ heightDynamic, valueTop }) => {
       flex-direction: column-reverse;
     }
     .avatarImg {
+      opacity: ${(props) => props.theme.mode.gifImg};
       height: 500px;
       align-self: end;
       @media (max-width: 500px) {
@@ -78,9 +80,12 @@ const Loader = ({ heightDynamic, valueTop }) => {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    color: #653939;
+    color: ${(props) => props.theme.mode.loaderAnimated.text1};
     font-size: 32px;
+    span {
+      color: ${(props) => props.theme.mode.loaderAnimated.text2};
+      font-size: 24px;
+    }
   `;
   const PushDiv = styled.div`
     height: 500px;
@@ -94,9 +99,7 @@ const Loader = ({ heightDynamic, valueTop }) => {
         <TextContainer>
           <H1>
             Natalia Vega
-            <span style={{ fontSize: `24px`, color: `#bc6a69` }}>
-              portfolio
-            </span>
+            <span>portfolio</span>
           </H1>
           <DynamicSkills />
         </TextContainer>

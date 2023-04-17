@@ -1,30 +1,41 @@
 // React
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 // Style
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import StudyDisplay from "./StudyDisplay";
 import StudyItem from "./StudyItem";
 
 const Studys = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
+  
   const studyCollection = [
+    //IFTS
+    {
+      school: theme.lang.studys.ifts.school,
+      schoolLogo: `iftsLogo.png`,
+      degree: theme.lang.studys.ifts.degree,
+      finishDate: theme.lang.studys.ifts.finishDate,
+      startDate: theme.lang.studys.ifts.startDate,
+    },
     // React coderhouse
     {
       school: `Coderhouse`,
       schoolLogo: `coderLogo.svg`,
-      degree: `Certificado de React JS`,
+      degree: theme.lang.studys.reactCoder.degree,
       grade: `10`,
       credential: `coderReactCredential.png`,
       project: `coderReactProject.png`,
       link: `https://beautycosmetics.vercel.app/`,
-      finishDate: `Actualidad`,
+      finishDate: ``,
       startDate: ``,
     },
     // JS Nucba
     {
       school: `Nucba`,
       schoolLogo: `nucbaLogo.svg`,
-      degree: `Certificado de JavaScript`,
+      degree: theme.lang.studys.jsNucba.degree,
       grade: ``,
       credential: `nucbaJSCredential.png`,
       project: `nucbaJSProject.png`,
@@ -36,7 +47,7 @@ const Studys = () => {
     {
       school: `Coderhouse`,
       schoolLogo: `coderLogo.svg`,
-      degree: `Certificado de Diseño UX UI Avanzado`,
+      degree: theme.lang.studys.uxuiAdvCoder.degree,
       grade: `10`,
       credential: `coderUXACredential.png`,
       project: `coderUXAProject.png`,
@@ -48,7 +59,7 @@ const Studys = () => {
     {
       school: `Nucba`,
       schoolLogo: `nucbaLogo.svg`,
-      degree: `Certificado de Diseño Web (HTML5 y CSS)`,
+      degree: theme.lang.studys.webdesignNucba.degree,
       grade: ``,
       credential: `nucbaDWebCredential.png`,
       project: `nucbaDWebProject.png`,
@@ -60,7 +71,7 @@ const Studys = () => {
     {
       school: `Coderhouse`,
       schoolLogo: `coderLogo.svg`,
-      degree: `Certificado de Diseño UX UI Inicial`,
+      degree: theme.lang.studys.uxuiinitialCoder.degree,
       grade: `10`,
       credential: `coderUXCredential.png`,
       project: `coderUXProject.png`,
@@ -70,41 +81,41 @@ const Studys = () => {
     },
     // Odontologia - Universidad de Bs As
     {
-      school: `Universidad de Buenos Aires`,
+      school: theme.lang.studys.ubaOdon.school,
       schoolLogo: `UBALogo.svg`,
-      degree: `Titulo de odontóloga general`,
-      grade: `(44% de la carrera - abandonada)`,
+      degree: theme.lang.studys.ubaOdon.degree,
+      grade: theme.lang.studys.ubaOdon.grade,
       credential: ``,
       project: ``,
       link: ``,
-      finishDate: `Dic. 2021`,
+      finishDate: theme.lang.studys.ubaOdon.finishDate,
       startDate: ``,
     },
+    //Bachiller
     {
-      school: `Colegio Nuestra Señora de Luján - Adrogué`,
+      school: theme.lang.studys.bachiller.school,
       schoolLogo: `CNSLLogo.svg`,
-      degree: `Bachiller con orientación en Ciencias naturales`,
+      degree: theme.lang.studys.bachiller.degree,
       grade: ``,
       credential: ``,
       project: ``,
       link: ``,
-      finishDate: `Dic. 2016`,
-      startDate: `Mar. 2011`,
+      finishDate: theme.lang.studys.bachiller.finishDate,
+      startDate: theme.lang.studys.bachiller.startDate,
     },
   ];
   const Container = styled.section`
     width: 100%;
-    padding-top: 32px;
+    padding-top: 92px;
     padding-bottom: 72px;
     display: flex;
     flex-direction: column;
     gap: 32px;
+
     @media (max-width: 960px) {
       padding-top: 56px;
     }
-    @media (max-width: 720px) {
-      padding-top: 56px;
-    }
+    
   `;
   const StudyDisplayContainer = styled.div`
     display: flex;
@@ -121,7 +132,7 @@ const Studys = () => {
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    color: ${(propsTheme) => propsTheme.theme.light.colors.yellow};
+    color: ${(propsTheme) => propsTheme.theme.mode.colors.yellow};
   `;
   const StudysContainer = styled.article`
     display: flex;
@@ -135,6 +146,7 @@ const Studys = () => {
   const [studySelected, setStudySelected] = useState();
   const renderStudys = studyCollection.map((study) => (
     <StudyItem
+      key={study.degree + study.school}
       school={study.school}
       schoolLogo={study.schoolLogo}
       degree={study.degree}
@@ -146,6 +158,8 @@ const Studys = () => {
       startDate={study.startDate}
       setterStudySelected={setStudySelected}
       studySelected={studySelected}
+      gradeP={theme.lang.studys.gradeP}
+
     ></StudyItem>
   ));
 
@@ -155,7 +169,7 @@ const Studys = () => {
 
   return (
     <Container>
-      <H2>Estudios</H2>
+       <H2>{theme.lang.studys.h2}</H2>
       <StudyDisplayContainer>
         <StudysContainer>{renderStudys}</StudysContainer>
         {findStudySelected && (
@@ -163,6 +177,9 @@ const Studys = () => {
             infoStudySelected={findStudySelected}
             setterStudySelected={setStudySelected}
             studySelected={studySelected}
+            certificateP={theme.lang.studys.certificateP}
+            projectP={theme.lang.studys.projectP}
+            gotoP={theme.lang.studys.gotoP}
           ></StudyDisplay>
         )}
       </StudyDisplayContainer>

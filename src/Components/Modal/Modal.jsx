@@ -1,7 +1,9 @@
 import React from "react";
 
-import styled from "styled-components";
-const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
+import styled, {useTheme} from "styled-components";
+const Modal = ({ textDialog, titleDialog, openModal, setterModal, href }) => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
   const Container = styled.div`
     position: fixed;
     display: ${openModal ? `flex` : `none`};
@@ -10,7 +12,8 @@ const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
     width: 100%;
     height: 100%;
     top: 0;
-    z-index: 2000;
+    left: 0;
+    z-index: 5500;
     background: #00000025;
     backdrop-filter: blur(1px);
   `;
@@ -22,12 +25,7 @@ const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
 
     padding: 32px;
     gap: 24px;
-    background: linear-gradient(
-        0deg,
-        rgba(113, 90, 174, 0.11),
-        rgba(113, 90, 174, 0.11)
-      ),
-      #fffbfe;
+    background: ${(props) => props.theme.mode.colors.bgNavBar};
     border-radius: 28px;
   `;
   const TitleDialog = styled.h3`
@@ -35,14 +33,14 @@ const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    color: ${(props) => props.theme.light.colors.text};
+    color: ${(props) => props.theme.mode.colors.text};
   `;
   const TextDialog = styled.p`
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: ${(props) => props.theme.light.colors.text};
+    color: ${(props) => props.theme.mode.colors.text};
   `;
   const ButtonContainer = styled.div`
     display: flex;
@@ -59,9 +57,9 @@ const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
     background: none;
     cursor: pointer;
     font-variant: all-small-caps;
-    color: ${(props) => props.theme.light.colors.text};
+    color: ${(props) => props.theme.mode.colors.text};
     &.error {
-      color: ${(props) => props.theme.light.colors.error};
+      color: ${(props) => props.theme.mode.colors.error};
     }
   `;
   return (
@@ -74,10 +72,12 @@ const Modal = ({ textDialog, titleDialog, openModal, setterModal }) => {
             className="error"
             onClick={() => setterModal(!openModal)}
           >
-            cancelar
+            {theme.lang.modal.decline}
           </ButtonDialog>
-          <a href="assets/cv.pdf" target="_blank">
-            <ButtonDialog >aceptar</ButtonDialog>
+          <a href={`assets/` + theme.lang.resume} target="_blank">
+            <ButtonDialog onClick={() => setterModal(!openModal)}>
+            {theme.lang.modal.accept}
+            </ButtonDialog>
           </a>
         </ButtonContainer>
       </ContainerDialog>

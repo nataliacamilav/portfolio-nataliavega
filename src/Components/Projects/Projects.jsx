@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 
 // Styled
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import FilterItem from "./FilterItem";
 import ProjectItem from "./ProjectItem";
 
 const Container = styled.section`
   width: 100%;
-  padding-top: 32px;
+  padding-top: 92px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -16,7 +16,6 @@ const Container = styled.section`
     padding-top: 56px;
   }
 `;
-
 const FilterContainer = styled.article`
   display: flex;
   flex-direction: column;
@@ -34,7 +33,7 @@ const H2 = styled.h2`
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  color: ${(propsTheme) => propsTheme.theme.light.colors.blue};
+  color: ${(propsTheme) => propsTheme.theme.mode.colors.blue};
 `;
 const H3 = styled.h3`
   font-family: "Roboto";
@@ -48,35 +47,34 @@ const ProjectsContainer = styled.article`
   gap: 24px;
 `;
 const Projects = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
   const filters = [
     // Segun rol ejercido
     {
-      filterType: `Según rol ejercido`,
+      filterType: theme.lang.projects.according1,
       filter: [
-        { name: `Diseño UX UI`, color: `lightPink`, id: 1 },
-        { name: `Desarrollo Front-End`, color: `lightPurple`, id: 2 },
+        { name: theme.lang.projects.ac1it1, color: `lightPink`, id: 1 },
+        { name: theme.lang.projects.ac1it2, color: `lightPurple`, id: 2 },
       ],
     },
     // Según habilidad técnica:
     {
-      filterType: `Según habilidad técnica:`,
+      filterType: theme.lang.projects.according2,
       filter: [
         { name: `JS Vanilla`, color: `lightBlue`, id: 1 },
         { name: `React JS`, color: `lightBlue`, id: 2 },
       ],
     },
   ];
-
-  const extractFilters = filters.map((e) => e.filter);
-
   const projectsCollection = [
     // Beauty cosmetics
     {
       id: 8,
-      title: `“Beauty Cosmetics” - E-commerce de cosméticos`,
-      subtitle: `Diseño, prototipado y desarrollo de proyecto basado en un e-commerce de cosméticos.`,
-      date: `Sep. 2022 - Nov. 2022`,
-      filterTag: [{ name: `Desarrollo Front-End`, color: "lightPurple" }],
+      title: theme.lang.projects.beautyCosmetics.title,
+      subtitle: theme.lang.projects.beautyCosmetics.subtitle,
+      date: theme.lang.projects.beautyCosmetics.date,
+      filterTag: [{ name: theme.lang.projects.ac1it2, color: "lightPurple" }],
       skillsTag: [
         `HTML5`,
         `CSS3`,
@@ -88,25 +86,18 @@ const Projects = () => {
         `GitHub`,
       ],
       image: `coderReactProject.png`,
-      text: [
-        `Manejo de datos en Firebase`,
-        `Skeleton loader`,
-        `Manejo de productos en el carrito`,
-        `Validación de formularios`,
-        `HTML, CSS, JavaScript y React JS`,
-        `La página web se adapta a todos los dispositivos`,
-      ],
+      text: theme.lang.projects.beautyCosmetics.text,
       gitHub: `https://github.com/nataliavega98/Beauty-Cosmetics`,
       link: ` https://beautycosmetics.vercel.app/`,
-      comment: `Proyecto integrador asociado a “React JS - Coderhouse”`,
+      comment: theme.lang.projects.beautyCosmetics.comment,
     },
     // Gaming Store
     {
       id: 7,
-      title: `“Gaming Store” - E-commerce de juegos`,
-      subtitle: `Diseño, prototipado y desarrollo de proyecto basado en un e-commerce de juegos.`,
-      date: `Sep. 2022 - Nov. 2022`,
-      filterTag: [{ name: `Desarrollo Front-End`, color: "lightPurple" }],
+      title: theme.lang.projects.gamingStore.title,
+      subtitle: theme.lang.projects.gamingStore.subtitle,
+      date: theme.lang.projects.gamingStore.date,
+      filterTag: [{ name: theme.lang.projects.ac1it2, color: "lightPurple" }],
       skillsTag: [
         `HTML5`,
         `CSS3`,
@@ -117,27 +108,18 @@ const Projects = () => {
         `GitHub`,
       ],
       image: `nucbaJSProject.png`,
-      text: [
-        `Manejo de API y JSON local`,
-        `Skeleton loader`,
-        `Carrusel dinámico`,
-        `Simulación de registro e inicio de sesión utilizando localStorage`,
-        `Manejo de productos en el carrito`,
-        `Validación de formularios`,
-        `HTML, CSS y JavaScript`,
-        `La página web se adapta a todos los dispositivos`,
-      ],
+      text: theme.lang.projects.gamingStore.text,
       gitHub: `https://github.com/nataliavega98/gaming-store`,
       link: `https://gamingstore-bynatalia.vercel.app/`,
-      comment: `Proyecto integrador asociado a “JavaScript - NUCBA”.`,
+      comment: theme.lang.projects.gamingStore.comment,
     },
     // “LIMSA: Limpiador de zapatillas” - Landing page
     {
       id: 6,
-      title: `“LIMSA: Limpiador de zapatillas” - Landing page`,
-      subtitle: `Creación, investigación y diseño de una landing page para comercializar un producto de limpieza da calzado.`,
-      date: `Sep. 2022 - Nov. 2022`,
-      filterTag: [{ name: `Diseño UX UI`, color: "lightPink" }],
+      title: theme.lang.projects.limsa.title,
+      subtitle: theme.lang.projects.limsa.subtitle,
+      date: theme.lang.projects.limsa.date,
+      filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
         `Prototipado`,
         `Responsive Design`,
@@ -149,23 +131,18 @@ const Projects = () => {
         `Ps`,
       ],
       image: `coderLIMSAProject.png`,
-      text: [
-        `Diseño interactivo`,
-        `Responsive design`,
-        `Research y benchmarking`,
-      ],
+      text: theme.lang.projects.limsa.text,
       behance: `https://www.behance.net/gallery/159075451/LIM-SA-Landing-page`,
       link: `https://lim-sa.netlify.app/`,
-      comment: `Proyecto realizado en equipo junto un diseñador UX UI y dos desarrolladores Front-End. 
-      En este trabajo ejercí el rol de Diseñadora UX UI.`,
+      comment: theme.lang.projects.limsa.comment,
     },
     // “HBO MAX - Re-diseño de página web
     {
       id: 5,
-      title: `HBO MAX - Re-diseño de página web`,
-      subtitle: `Investigación de puntos de dolor y problemas al usar la plataforma web, propuesta de rediseño y presentación de prototipo.`,
-      date: `Sep. 2022 - Nov. 2022`,
-      filterTag: [{ name: `Diseño UX UI`, color: "lightPink" }],
+      title: theme.lang.projects.hbomax.title,
+      subtitle: theme.lang.projects.hbomax.subtitle,
+      date: theme.lang.projects.hbomax.date,
+      filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
         `Prototipado`,
         `Responsive Design`,
@@ -177,34 +154,19 @@ const Projects = () => {
         `Ps`,
       ],
       image: `coderUXAProject.png`,
-      text: [
-        `Elementos del UX de James Garret`,
-        `Entrevistas y encuestas`,
-        `Análisis de tendencias`,
-        `Benchmarking`,
-        `Análisis UX`,
-        `Lean UX Canvas`,
-        `Mapa de trayectoria`,
-        `Matriz de necesidades`,
-        `Matriz de factibilidad, deseabilidad y viabilidad`,
-        `Arquitectura de la información`,
-        `Tree testing`,
-        `Wireflow`,
-        `Guia de estilos, sistema de diseño y UI Kit`,
-        `Pruebas de usabilidad`,
-      ],
+      text: theme.lang.projects.hbomax.text,
       behance: `https://www.behance.net/gallery/153206055/Reporte-UX-VF-Natalia-Vega?tracking_source=project_owner_other_projects`,
-      comment: `Proyecto integrador asociado a “Diseño UX UI Avanzado - Coderhouse”.`,
+      comment: theme.lang.projects.hbomax.comment,
     },
     // “Gina: Una perrita muy dulce” - cuento digital interactivo
     {
       id: 4,
-      title: `“Gina: Una perrita muy dulce” - cuento digital interactivo`,
-      subtitle: `Diseño y desarrollo de cuento digital interactivo desarrollado en página web dónde el lector puede elegir su trayecto a través de la historia.`,
-      date: `Sep. 2022 - Oct. 2022`,
+      title: theme.lang.projects.gina.title,
+      subtitle: theme.lang.projects.gina.subtitle,
+      date: theme.lang.projects.gina.date,
       filterTag: [
-        { name: `Diseño UX UI`, color: "lightPink" },
-        { name: `Desarrollo Front-End`, color: "lightPurple" },
+        { name:  theme.lang.projects.ac1it1, color: "lightPink" },
+        { name:  theme.lang.projects.ac1it2, color: "lightPurple" },
       ],
       skillsTag: [
         `Prototipado`,
@@ -217,21 +179,17 @@ const Projects = () => {
         `Ps`,
       ],
       image: `ginaProject.png`,
-      text: [
-        `Diseño interactivo`,
-        `Maquetado y desarrollo con HTML y CSS`,
-        `Responsive design`,
-      ],
+      text: theme.lang.projects.gina.text,
       link: `https://gina-unaperritamuydulce.vercel.app/`,
-      comment: `Proyecto realizado en equipo junto a la autora de la historia.  En este trabajo ejercí el rol de Diseñadora y Desarrolladora (HTML y CSS).`,
+      comment: theme.lang.projects.gina.comment,
     },
     // Victoria Fernandez - Landing Page
     {
       id: 3,
-      title: `Victoria Fernandez - Landing Page`,
-      subtitle: `Creación, investigación y diseño de una landing page para una community manager.`,
-      date: `Ago. 2022 - Sep. 2022`,
-      filterTag: [{ name: `Diseño UX UI`, color: "lightPink" }],
+      title: theme.lang.projects.vf.title,
+      subtitle: theme.lang.projects.vf.subtitle,
+      date: theme.lang.projects.vf.date,
+      filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
         `Prototipado`,
         `Responsive Design`,
@@ -243,29 +201,17 @@ const Projects = () => {
         `Ps`,
       ],
       image: `coderVFProject.png`,
-      text: [
-        `Investigación`,
-        `Benchmarking`,
-        `User-personas`,
-        `Encuestas`,
-        `Point of view (POV)`,
-        `Minimo producto viable (MVP)`,
-        `Card Sorting`,
-        `Arquitectura de la información`,
-        `Diseño en base a la identidad de la marca`,
-        `Responsive design`,
-      ],
+      text:theme.lang.projects.vf.text,
       behance: `https://www.behance.net/gallery/153206055/Reporte-UX-VF-Natalia-Vega?tracking_source=project_owner_other_projects/`,
-      comment: `Proyecto realizado en equipo junto con dos desarrolladores Front-End.
-      En este trabajo ejercí el rol de Diseñadora UX UI.`,
+      comment: theme.lang.projects.vf.comment,
     },
     // “Nereidas Cruceros” - Landing Page
     {
       id: 2,
-      title: `“Nereidas Cruceros” - Landing Page`,
-      subtitle: `Creación, diseño y desarrollo de landing page.`,
-      date: `Ago. 2022 - Sep. 2022`,
-      filterTag: [{ name: `Desarrollo Front-End`, color: "lightPurple" }],
+      title: theme.lang.projects.nereidas.title,
+      subtitle: theme.lang.projects.nereidas.subtitle,
+      date: theme.lang.projects.nereidas.date,
+      filterTag: [{ name: theme.lang.projects.ac1it2, color: "lightPurple" }],
       skillsTag: [
         `HTML5`,
         `CSS3`,
@@ -275,21 +221,17 @@ const Projects = () => {
         `VSCode`,
       ],
       image: `nucbaDWebProject.png`,
-      text: [
-        `Maquetación en HTML5 y CSS3 de un proyecto final dónde se debia representar una landing page con distintas secciones dentro de la misma página y un registro e inicio de sesión`,
-        `Maquetado y desarrollo con HTML y CSS`,
-        `Responsive design`,
-      ],
+      text: theme.lang.projects.nereidas.text,
       link: `https://nereidas-cruceros.vercel.app/`,
-      comment: `Proyecto integrador asociado a “Diseño web - NUCBA”`,
+      comment: theme.lang.projects.nereidas.comment,
     },
     // “Share” - Aplicación móvil para android
     {
       id: 1,
-      title: `“Share” - Aplicación móvil para android`,
-      subtitle: `Creación, investigación y diseño de una aplicación móvil.`,
-      date: `Feb. 2022 - May. 2022`,
-      filterTag: [{ name: `Diseño UX UI`, color: "lightPink" }],
+      title: theme.lang.projects.share.title,
+      subtitle:theme.lang.projects.share.subtitle,
+      date: theme.lang.projects.share.date,
+      filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
         `Prototipado`,
         `Figma`,
@@ -302,19 +244,9 @@ const Projects = () => {
         `Ai`,
       ],
       image: `coderUXProject.png`,
-      text: [
-        `Diseño centrado en el usuario`,
-        `Benchmarking`,
-        `Responsive design`,
-        `User-personas y storyboard`,
-        `Entrevistas cualitativas y encuestas`,
-        `Arquitectura de la información y user-flow`,
-        `Bocetado de wireframes, prototipado en baja fidelidad y alta fidelidad (LO-FI, HI-FI)`,
-        `Pruebas de usabilidad.`,
-        `Elaboración de UI kit y Atomic Design.`,
-      ],
+      text: theme.lang.projects.share.text,
       behance: `https://www.behance.net/gallery/142527049/Share-Natalia-Vega`,
-      comment: `Proyecto integrador asociado a “Diseño web - NUCBA”`,
+      comment: theme.lang.projects.share.comment,
     },
   ];
   const [filterSelected, setFilterSelected] = useState(`all`);
@@ -335,6 +267,7 @@ const Projects = () => {
         filterTag={item.filterTag}
         skillsTag={item.skillsTag}
         image={item.image}
+        skillsP={theme.lang.projects.skillsP}
         text={item.text}
         behance={item.behance}
         gitHub={item.gitHub}
@@ -361,9 +294,9 @@ const Projects = () => {
   };
   return (
     <Container>
-      <H2>Proyectos</H2>
+      <H2>{theme.lang.projects.h2}</H2>
       <FilterContainer>
-        <H3>Filtrar:</H3>
+        <H3>{theme.lang.projects.h3}:</H3>
         <FilterItemContainer>{renderFilters}</FilterItemContainer>
       </FilterContainer>
       <ProjectsContainer>{filteredProjects()}</ProjectsContainer>

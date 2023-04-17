@@ -12,7 +12,6 @@ const ButtonNav = ({
   link,
   setterSection,
   sectionSelected,
-  id,
   dialog,
   titleDialog,
   textDialog,
@@ -21,10 +20,10 @@ const ButtonNav = ({
   setterTitleDialog,
   setterTextDialog,
   setterMenu,
-  stateMenu
+  stateMenu,
+
 }) => {
   const ButtonNav = styled.button`
-    background-color: "";
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,31 +40,35 @@ const ButtonNav = ({
 
     flex-grow: 1;
     min-width: fit-content;
+    color: ${(props) => props.theme.mode.colors.text};
 
     border: none;
     outline: none;
     cursor: pointer;
+    background-color: ${(props) => props.theme.mode.colors.bgNavBar};
 
     &:hover {
       background-color: ${(propsTheme) =>
-        propsTheme.theme.light.colors.lightGrey};
+        propsTheme.theme.mode.colors.lightGrey};
     }
 
     &.selected {
+      color: ${(props) => props.theme.mode.colors[`darker` + bgColor]};
       background-color: ${(propsTheme) =>
-        propsTheme.theme.light.colors[bgColor]};
+        propsTheme.theme.mode.colors[`light` + bgColor]};
     }
-
   `;
   const LinkButton = styled.div`
     textdecoration: none;
-    color: none;
+
     width: 100%;
     height: 52px;
   `;
   const onClickFx = () => {
     link && setterSection(link);
-    setterMenu(!stateMenu)
+    if (window.innerWidth < 960) {
+      setterMenu(!stateMenu);
+    }
     const dialogSetter = () => {
       setterModal(!openModal);
       setterTitleDialog(titleDialog);
@@ -85,7 +88,7 @@ const ButtonNav = ({
         to={link}
         style={{
           textDecoration: `none`,
-          color: `none`,
+
           width: `100%`,
           height: `100%`,
         }}

@@ -1,10 +1,12 @@
 import React from "react";
 
 // Style
-import Theme from "../Theme/Theme";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, useTheme } from "styled-components";
 
 const AboutMe = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
+
   // Nubes moviiendose hacia la derecha
   const infiniteLoop = keyframes`
     to {
@@ -13,24 +15,20 @@ const AboutMe = () => {
     `;
   const Container = styled.section`
     width: 100%;
-    padding-top: 32px;
+    padding-top: 92px;
     display: flex;
     flex-direction: column;
     gap: 32px;
     @media (max-width: 960px) {
+      padding: 16px;
+      padding-bottom: 56px;
       padding-top: 56px;
-      
     }
-    `;
-    const H2 = styled.h2`
-    font-family: "Convergence";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    color: ${(propsTheme) => propsTheme.theme.light.colors.pink};
   `;
+
   const BgImg = styled.div`
-    background-color: pink;
+    background-color: ${(propsTheme) =>
+      propsTheme.theme.mode.bgAnimated.bgColor};
     clip-path: circle(50% at 50% 50%);
     width: 250px;
     height: 250px;
@@ -44,7 +42,9 @@ const AboutMe = () => {
 
     &:after {
       content: "";
-      background: url(assets/cvClouds.svg) repeat-x;
+      background: url(assets/${(propsTheme) =>
+          propsTheme.theme.mode.bgAnimated.vectorAnimated})
+        repeat-x;
       background-size: 500px 250px;
       width: 100%;
       height: 100%;
@@ -62,6 +62,9 @@ const AboutMe = () => {
       flex-direction: column;
       align-items: center;
     }
+    & + p {
+      text-align: center;
+    }
   `;
 
   const Paragraph = styled.div`
@@ -69,21 +72,16 @@ const AboutMe = () => {
     flex-direction: column;
     gap: 24px;
   `;
-
-  const P = styled.p`
-    font-family: "Roboto";
+  const H2 = styled.h2`
+    font-family: "Convergence";
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-  `;
-
-  const Span = styled.span`
-    color: ${(propsTheme) => propsTheme.theme.light.colors.pink};
-    font-weight: 500;
+    font-size: 24px;
+    color: ${(propsTheme) => propsTheme.theme.mode.colors.purple};
   `;
   return (
     <Container>
-      <H2>Sobre mi</H2>
+      <H2>{theme.lang.aboutMe.h2}</H2>
       <InfoContainer>
         <BgImg>
           <img
@@ -93,31 +91,12 @@ const AboutMe = () => {
           />
         </BgImg>
         <Paragraph>
-          <P>
-            Soy una persona <Span>creativa</Span>, <Span>entusiasta</Span> y 
-            <Span> responsable</Span>. A comienzos del año 2022 decidí tomar un
-            rumbo distinto con mi vida profesional y cambié de estudiar
-            odontología a dedicarme al diseño y desarrollo web.
-          </P>
-          <P>
-            Realicé cursos de Diseño UX UI y además proyectos donde cumplí este
-            rol. Luego comencé a estudiar desarrollo web aprendiendo
-            <Span> HTML5</Span>,<Span> CSS3</Span>,<Span> JavaScript</Span> y
-            <Span> React JS</Span>. También poseo proyectos integradores, te
-            invito a verlos más abajo 😊.
-          </P>
-          <P>
-            Me gusta trabajar en equipo por lo que considero que tengo la
-            capacidad de adaptarme rápidamente, empatizar y comunicarme
-            claramente. Además, soy atenta a los detalles y puedo resolver
-            problemas emergentes.
-          </P>
+          {theme.lang.aboutMe.p1}
+          {theme.lang.aboutMe.p2}
+          {theme.lang.aboutMe.p3}
         </Paragraph>
       </InfoContainer>
-      <P style={{textAlign: `center`}}>
-        Espero conseguir un puesto laboral donde pueda emplear mis conocimientos
-        actuales y tener la oportunidad de seguir ampliándolos
-      </P>
+      {theme.lang.aboutMe.p4}
     </Container>
   );
 };

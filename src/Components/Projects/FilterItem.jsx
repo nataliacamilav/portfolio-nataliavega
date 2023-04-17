@@ -38,7 +38,7 @@ const FilterP = styled.p`
   font-weight: 500;
   font-size: 14px;
   text-align: center;
-  border: 2px solid ${(props) => props.theme.light.colors[props.color]};
+  border: 2px solid ${(props) => props.theme.mode.colors[props.color]};
   border-radius: 8px;
   padding: 8px 16px;
   width: fit-content;
@@ -46,11 +46,15 @@ const FilterP = styled.p`
   cursor: pointer;
   transition: background 0.2s linear;
   &.selected {
-    background: ${(props) => props.theme.light.colors[props.color]};
+    background: ${(props) => props.theme.mode.colors[props.color]};
+    color: ${props => props.theme.mode.colors.textInverse};
   }
-  &:hover {
-    transition: background 0.2s linear;
-    background: ${(props) => props.theme.light.colors[props.color]};
+  @media (min-width: 700px) {
+    &:hover {
+      transition: background 0.2s linear;
+      color: ${props => props.theme.mode.colors.textInverse};
+      background: ${(props) => props.theme.mode.colors[props.color]};
+    }
   }
 `;
 
@@ -74,7 +78,7 @@ const FilterItem = ({ filterType, filter, setterFilter, filterSelected }) => {
   ));
   return (
     <Container>
-      <H4>{filterType}</H4>
+      <H4>{filterType}:</H4>
       <FilterPContainer>{renderFilter}</FilterPContainer>
     </Container>
   );

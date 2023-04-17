@@ -3,12 +3,13 @@ import React from "react";
 
 import SocialMediaItem from "./SocialMediaItem";
 // Style
-import Theme from "../Theme/Theme";
-import styled, { css, keyframes } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { ImBehance2 } from "react-icons/im";
 import { IoMail } from "react-icons/io5";
 const Contact = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
   const Container = styled.section`
     width: 100%;
 
@@ -18,14 +19,15 @@ const Contact = () => {
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
+    padding-top: 92px;
 
     & img {
+      opacity: ${(props) => props.theme.mode.gifImg};
       align-self: center;
       width: 350px;
       object-fit: cover;
       @media (max-width: 960px) {
-        width:250px;
-        
+        width: 250px;
       }
     }
     @media (max-width: 960px) {
@@ -43,7 +45,7 @@ const Contact = () => {
     font-weight: 400;
     font-size: 24px;
 
-    color: ${(propsTheme) => propsTheme.theme.light.colors.purple};
+    color: ${(propsTheme) => propsTheme.theme.mode.colors.pink};
   `;
   const H3 = styled.h3`
     font-family: "Roboto";
@@ -67,8 +69,7 @@ const Contact = () => {
     gap: 16px;
     width: 660px;
     @media (max-width: 960px) {
-      width:100%;
-      
+      width: 100%;
     }
   `;
   const socialMediaCollection = [
@@ -104,12 +105,9 @@ const Contact = () => {
   return (
     <Container>
       <ContactTextContainer>
-        <H2>Contacto</H2>
-        <H3>¡Muchas gracias por visitar mi portfolio!</H3>
-        <H4>
-          Si te gustó mi trabajo no dudes en contactarme a través de mis redes
-          sociales.
-        </H4>
+        <H2>{theme.lang.contact.h2}</H2>
+        <H3>{theme.lang.contact.p1}</H3>
+        <H4>{theme.lang.contact.p2}</H4>
         <SocialMediaContainer>{renderSocialMedia}</SocialMediaContainer>
       </ContactTextContainer>
 

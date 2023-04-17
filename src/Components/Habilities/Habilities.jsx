@@ -3,20 +3,20 @@ import React from "react";
 import TecnicalItem from "./TecnicalItem";
 import SoftItem from "./SoftItem";
 // Style
-import Theme from "../Theme/Theme";
-import styled, { css, keyframes } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { BsStars } from "react-icons/bs";
 const Habilities = () => {
+  // Para cambiar el idioma y usar el theme fuera de styled components
+  const theme = useTheme();
   const Container = styled.section`
     width: 100%;
-    padding-top: 32px;
+    padding-top: 92px;
     padding-bottom: 72px;
     display: flex;
     flex-direction: column;
     gap: 32px;
     @media (max-width: 960px) {
       padding-top: 56px;
-      
     }
   `;
   const H2 = styled.h2`
@@ -24,7 +24,7 @@ const Habilities = () => {
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    color: ${(propsTheme) => propsTheme.theme.light.colors.green};
+    color: ${(propsTheme) => propsTheme.theme.mode.colors.green};
   `;
   const ContainerTecnical = styled.div`
     align-self: center;
@@ -35,13 +35,11 @@ const Habilities = () => {
     justify-content: center;
   `;
   const ContainerSoft = styled.div`
-    
     display: flex;
     flex-flow: row wrap;
     row-gap: 24px;
     column-gap: 52px;
     max-width: calc(700px + 32px);
-    
   `;
   const tecnicalH = [
     // HTML
@@ -107,47 +105,47 @@ const Habilities = () => {
   ];
   const softH = [
     {
-      thname: `Trabajo en equipo.`,
+      thname: theme.lang.skills.soft.s1,
       icon: <BsStars />,
     },
     {
-      thname: `Capacidad resolutiva`,
+      thname: theme.lang.skills.soft.s2,
       icon: <BsStars />,
     },
     {
-      thname: `comunicación clara`,
+      thname: theme.lang.skills.soft.s3,
       icon: <BsStars />,
     },
     {
-      thname: `empatía`,
+      thname: theme.lang.skills.soft.s4,
       icon: <BsStars />,
     },
     {
-      thname: `creatividad`,
+      thname: theme.lang.skills.soft.s5,
       icon: <BsStars />,
     },
     {
-      thname: `atención a los detalles.`,
+      thname: theme.lang.skills.soft.s6,
       icon: <BsStars />,
     },
     {
-      thname: `adaptabilidad`,
+      thname: theme.lang.skills.soft.s7,
       icon: <BsStars />,
     },
     {
-      thname: `buena organización`,
+      thname: theme.lang.skills.soft.s8,
       icon: <BsStars />,
     },
     {
-      thname: `persistente`,
+      thname: theme.lang.skills.soft.s9,
       icon: <BsStars />,
     },
     {
-      thname: `colaborativa`,
+      thname: theme.lang.skills.soft.s10,
       icon: <BsStars />,
     },
     {
-      thname: `Trabajo bajo presión`,
+      thname: theme.lang.skills.soft.s11,
       icon: <BsStars />,
     },
   ];
@@ -164,9 +162,9 @@ const Habilities = () => {
   ));
   return (
     <Container>
-      <H2>Habilidades técnicas</H2>
+      <H2>{theme.lang.skills.techP}</H2>
       <ContainerTecnical>{renderTecnicalH}</ContainerTecnical>
-      <H2>Habilidades blandas</H2>
+      <H2>{theme.lang.skills.softP}</H2>
       <ContainerSoft>{renderSoftH}</ContainerSoft>
     </Container>
   );

@@ -19,7 +19,7 @@ const SocialMediaItem = ({ icon, scname, link }) => {
 
     a {
       text-decoration: none;
-      color: ${(props) => props.theme.light.colors.text};
+      color: ${(props) => props.theme.mode.colors.text};
     }
   `;
   return (

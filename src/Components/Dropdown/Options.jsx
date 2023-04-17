@@ -3,7 +3,6 @@ import React from "react";
 
 // Style
 import styled, { css, keyframes } from "styled-components";
-import { MdKeyboardArrowDown } from "react-icons/md";
 const Options = ({ text, img, icon, id, setterLanguage }) => {
   const ButtonOption = styled.button`
     border: none;
@@ -27,18 +26,21 @@ const Options = ({ text, img, icon, id, setterLanguage }) => {
     background-color: "";
 
     cursor: pointer;
+    color: ${(props) => props.theme.mode.colors.text};
+
+    background: ${(props) => props.theme.mode.colors.bgNavBar};
 
     @media (max-width: 960px) {
       width: 100%;
     }
     &:hover {
       background-color: ${(propsTheme) =>
-        propsTheme.theme.light.colors.lightGrey};
+        propsTheme.theme.mode.colors.lightGrey};
     }
   `;
 
   return (
-    <ButtonOption onClick={() => setterLanguage && setterLanguage(id)}>
+    <ButtonOption onClick={() => id && setterLanguage(id)}>
       <img src={`assets/` + img} alt="" width={`20px`} />
       {text}
       {icon}

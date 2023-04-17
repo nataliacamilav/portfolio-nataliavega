@@ -1,25 +1,25 @@
 // React imports
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 // Style
-import styled, { css, keyframes } from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 
 const SwitchMode = ({ stateMenu }) => {
-  const [mode, setMode] = useState(false);
-
   const Contenedor = styled.div`
     margin: 0 16px;
-    background-color: ${mode ? `#87C6FF` : `#1F2533`};
+    background-color: ${(props) => props.theme.mode.switchStyle.contenedorBgC};
     width: 60px;
     height: 20px;
     border-radius: 100px;
     display: flex;
     align-items: center;
-    justify-content: ${mode ? `flex-start` : `flex-end`};
+    justify-content: ${(props) => props.theme.mode.switchStyle.contenedorJC};
     padding: 1px 3px;
     position: relative;
     cursor: pointer;
     transition: all 5s linear;
+    overflow: hidden;
+    min-width: 24px;
 
     &:after {
       position: absolute;
@@ -29,28 +29,19 @@ const SwitchMode = ({ stateMenu }) => {
       width: 100%;
       height: 100%;
 
-      background: url(${mode
-        ? `assets/whiteClouds.svg`
-        : `assets/whiteStars.svg`});
+      background: url(${(props) => props.theme.mode.switchStyle.bgURL});
 
       transition: background 5s linear;
     }
     @media (max-width: 960px) {
       display: ${stateMenu ? `flex` : `none`};
+      
     }
   `;
   const MoonSun = styled.div`
-    background-color: ${mode ? `#ffc187` : `#ffffff`};
-    box-shadow: ${
-      mode
-        ? `-3.9px 6.5px 5.2px rgba(183, 183, 183, 0.35),
-        0px 0px 11.7px rgba(255, 193, 135, 0.6), inset 0px -2.6px 5.2px #ffa149,
-        inset 0px 2.6px 5.2px #ffd0a5;
-      clip-path: circle(50% at 50% 50%);`
-        : `-3.9px 0px 19.5px rgba(183, 183, 183, 0.31),
-    inset 0px -2.6px 5.2px #ffffff, inset 0px 2.6px 5.2px #bfbfc0;`
-    }
-     
+    background-color: ${(props) => props.theme.mode.switchStyle.msColor};
+    box-shadow: ${(props) => props.theme.mode.switchStyle.msBS};
+
     border-radius: 100px;
     width: 16px;
     height: 16px;
@@ -59,7 +50,7 @@ const SwitchMode = ({ stateMenu }) => {
 
     &:after {
       content: "";
-      position: ${mode ? `relative` : `absolute`};
+      position: ${(props) => props.theme.mode.switchStyle.msAfterP};
       width: 10px;
       height: 10px;
       background-color: #1f2533;
@@ -68,11 +59,27 @@ const SwitchMode = ({ stateMenu }) => {
 
       right: -2px;
       transition: all 5s linear;
-
     }
   `;
+
+  //Fx para setear en el localStorage el mode
+  const themeContext = useContext(ThemeContext);
+
+  const setterThemeMode = () => {
+    const localMode = themeContext.themeMode === `light` ? `dark` : `light`;
+    themeContext.setThemeMode(localMode);
+    window.localStorage.setItem(`themeMode`, localMode);
+  };
+
+  const fxOnclick = () => {
+    setterThemeMode();
+  };
   return (
-    <Contenedor onClick={() => setMode(!mode)}>
+    <Contenedor
+      onClick={() => {
+        fxOnclick();
+      }}
+    >
       <MoonSun></MoonSun>
     </Contenedor>
   );

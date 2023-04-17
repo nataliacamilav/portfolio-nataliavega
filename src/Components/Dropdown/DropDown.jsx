@@ -1,15 +1,15 @@
 // React imports
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 // Style
-import styled, { css, keyframes } from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import Options from "./Options";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-const DropDown = ({stateMenu}) => {
+const DropDown = ({ stateMenu }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  const [language, setLanguage] = useState("ES");
+
 
   const Container = styled.div`
     display: flex;
@@ -23,7 +23,7 @@ const DropDown = ({stateMenu}) => {
     }
   `;
   const OptionsContainer = styled.div`
-    background-color: ${(propsTheme) => propsTheme.theme.light.colors.bgNavBar};
+    background-color: ${(propsTheme) => propsTheme.theme.mode.colors.bgNavBar};
     display: ${dropdown ? `flex` : `none`};
     flex-direction: column;
     position: absolute;
@@ -45,6 +45,13 @@ const DropDown = ({stateMenu}) => {
     },
   ];
 
+  //Fx para setear en el localStorage el mode
+  const themeContext = useContext(ThemeContext);
+
+  const setLanguage = (id) => {
+    themeContext.setLangSelected(id);
+    window.localStorage.setItem(`localLanguage`, id);
+  };
   // Renderizado de options
   const renderOptions = languageSettings.map((option) => (
     <Options
@@ -57,7 +64,7 @@ const DropDown = ({stateMenu}) => {
   ));
 
   const renderSelected = () => {
-    const selected = languageSettings.find((lang) => lang.id === language);
+    const selected = languageSettings.find((lang) => lang.id === themeContext.langSelected);
 
     return (
       <Options
@@ -68,9 +75,12 @@ const DropDown = ({stateMenu}) => {
     );
   };
 
+  const fxOnclick = () => {
+    setDropdown(!dropdown);
+  };
   return (
-    <Container onClick={() => setDropdown(!dropdown)}>
-      {language && renderSelected()}
+    <Container onClick={() => fxOnclick()}>
+      {themeContext.langSelected && renderSelected()}
       {/* Contenedor de opciones */}
       <OptionsContainer>{renderOptions}</OptionsContainer>
     </Container>
