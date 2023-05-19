@@ -293,6 +293,21 @@ const ES = {
     ac1it1: `Diseño UX UI`,
     ac1it2: `Desarrollo Front-End`,
     skillsP: `Habilidades desarrolladas`,
+    moveFinanciera: {
+      title: `MOVE - Financiera`,
+      subtitle: `Rediseño y prototipado de un sistema financiero.`,
+      date: `Ene. 2023- Abr. 2022`,
+      text: [
+        `Re-diseño de logo y creacion de identidad de la marca`,
+        `UI Kit and prototipado`,
+        `Entrevista con el líder de la empresa`,
+        `Análisis UX`,
+        `Nueva arquitectura de la información`,
+        `Userflow`,
+        `Nuevos caminos en el sistema`
+      ],
+      comment: `Freelance project carried out as a team together with a developer ”`,
+    },
     beautyCosmetics: {
       title: `“Beauty Cosmetics” - E-commerce de cosméticos`,
       subtitle: `Diseño, prototipado y desarrollo de proyecto basado en un e-commerce de cosméticos.`,
@@ -433,18 +448,19 @@ const EN = {
     h2: `About Me`,
     p1: (
       <P>
-        I am a <Span>creative</Span>, <Span>enthusiastic</Span>, and <Span>responsible</Span> person. At the beginning
-        of 2022 I decided to take my professional path in another direction
-        which led me to change from studying dentistry to web design and
-        development.
+        I am a <Span>creative</Span>, <Span>enthusiastic</Span>, and{" "}
+        <Span>responsible</Span> person. At the beginning of 2022 I decided to
+        take my professional path in another direction which led me to change
+        from studying dentistry to web design and development.
       </P>
     ),
     p2: (
       <P>
         I did UX UI design courses and some projects where I fulfilled that
-        role. Then I proceeded with web development by learning <Span>HTML5</Span>, <Span>CSS3</Span>,
-        <Span>JavaScript</Span> and <Span>React JS</Span>. I have some integrating projects I invite you
-        to see in the section called “Projects”.
+        role. Then I proceeded with web development by learning{" "}
+        <Span>HTML5</Span>, <Span>CSS3</Span>,<Span>JavaScript</Span> and{" "}
+        <Span>React JS</Span>. I have some integrating projects I invite you to
+        see in the section called “Projects”.
       </P>
     ),
     p3: (
@@ -531,6 +547,21 @@ const EN = {
     ac1it1: `UX UI Design `,
     ac1it2: `Front End Development`,
     skillsP: `Skills developed`,
+    moveFinanciera: {
+      title: `MOVE - Financial`,
+      subtitle: ` Redesign and prototyped of a finance system .`,
+      date: `Jan. 2023- Apr. 2022`,
+      text: [
+        `Logo re-design and brand identit creation`,
+        `UI Kit and prototyped`,
+        `Interview with the company leader`,
+        `UX Analysis`,
+        `New information architecture`,
+        `Userflow`,
+        `New paths in the system`
+      ],
+      comment: `Freelance project carried out as a team together with a developer ”`,
+    },
     beautyCosmetics: {
       title: `“Beauty Cosmetics” – Cosmetics e-commerce`,
       subtitle: ` Design, prototyped and project development based on a cosmetics e-commerce.`,

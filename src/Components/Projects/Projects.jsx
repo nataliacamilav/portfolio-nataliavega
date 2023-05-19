@@ -68,6 +68,28 @@ const Projects = () => {
     },
   ];
   const projectsCollection = [
+    // Move Financiera
+    {
+      id: 9,
+      title: theme.lang.projects.moveFinanciera.title,
+      subtitle: theme.lang.projects.moveFinanciera.subtitle,
+      date: theme.lang.projects.moveFinanciera.date,
+      filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
+      skillsTag: [
+        `Prototipado`,
+        `Responsive Design`,
+        `UI Kit`,
+        `Benchmarking`,
+        `Sistema Financiero`,
+        `Whimsical`,
+        `UXTweak`,
+        `Ps`,
+      ],
+      image: `reporteMove.png`,
+      text: theme.lang.projects.moveFinanciera.text,
+      behance: `https://www.behance.net/gallery/171044901/MOVE-Financiera-Rediseno-de-sistema?`,
+      comment: theme.lang.projects.moveFinanciera.comment,
+    },
     // Beauty cosmetics
     {
       id: 8,
