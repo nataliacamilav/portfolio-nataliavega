@@ -76,6 +76,7 @@ const Projects = () => {
       date: theme.lang.projects.moveFinanciera.date,
       filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
+        `Freelance`,
         `Prototipado`,
         `Responsive Design`,
         `UI Kit`,
