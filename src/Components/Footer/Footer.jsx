@@ -2,7 +2,6 @@
 import React from "react";
 
 // Style
-import Theme from "../Theme/Theme";
 import styled, { useTheme } from "styled-components";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
 import { ImBehance2 } from "react-icons/im";
@@ -64,8 +63,15 @@ const Footer = () => {
       link: `natalia.camila@hotmail.com`,
     },
   ];
-  const renderSocialMedia = socialMediaCollection.map((item) => (
-    <a href={item.link} className="iconSocialMedia" target="_blank">{item.icon}</a>
+  const renderSocialMedia = socialMediaCollection.map((item, index) => (
+    <a
+      href={item.link}
+      className="iconSocialMedia"
+      target="_blank"
+      key={item.link + index}
+    >
+      {item.icon}
+    </a>
   ));
   return (
     <Contenedor>

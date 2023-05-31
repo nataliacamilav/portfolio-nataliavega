@@ -306,7 +306,7 @@ const ES = {
         `Userflow`,
         `Nuevos caminos en el sistema`
       ],
-      comment: `Freelance project carried out as a team together with a developer ”`,
+      comment: `Proyecto freelance realizado junto a un desarrollador web full stack.”`,
     },
     beautyCosmetics: {
       title: `“Beauty Cosmetics” - E-commerce de cosméticos`,

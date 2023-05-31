@@ -144,9 +144,9 @@ const Studys = () => {
     }
   `;
   const [studySelected, setStudySelected] = useState();
-  const renderStudys = studyCollection.map((study) => (
+  const renderStudys = studyCollection.map((study, index) => (
     <StudyItem
-      key={study.degree + study.school}
+      key={study.degree + index}
       school={study.school}
       schoolLogo={study.schoolLogo}
       degree={study.degree}

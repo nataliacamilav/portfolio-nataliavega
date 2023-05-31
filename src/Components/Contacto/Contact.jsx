@@ -95,11 +95,12 @@ const Contact = () => {
       link: `natalia.camila@hotmail.com`,
     },
   ];
-  const renderSocialMedia = socialMediaCollection.map((item) => (
+  const renderSocialMedia = socialMediaCollection.map((item, index) => (
     <SocialMediaItem
       icon={item.icon}
       scname={item.scname}
       link={item.link}
+      key={item.scname + index}
     ></SocialMediaItem>
   ));
   return (

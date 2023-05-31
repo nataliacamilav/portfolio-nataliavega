@@ -169,14 +169,14 @@ const ProjectItem = ({
     align-items: center;
     font-size_ 16px;
   `;
-  const renderFilterTags = filterTag.map((e) => (
-    <FilterTags color={e.color}>{e.name}</FilterTags>
+  const renderFilterTags = filterTag.map((e, index) => (
+    <FilterTags color={e.color} key={e.color + index}>{e.name}</FilterTags>
   ));
-  const renderSkillTags = skillsTag.map((e) => <SkillTag>{e}</SkillTag>);
+  const renderSkillTags = skillsTag.map((e, index) => <SkillTag key={e + index}>{e}</SkillTag>);
 
-  const renderText = text.map((e) => (
+  const renderText = text.map((e, index) => (
     <PList>
-      <BsStars style={{ color: `#ffc107` }} />
+      <BsStars style={{ color: `#ffc107` }} key={e + index} />
       {e}.
     </PList>
   ));

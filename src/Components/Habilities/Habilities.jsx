@@ -150,15 +150,15 @@ const Habilities = () => {
     },
   ];
 
-  const renderTecnicalH = tecnicalH.map((item) => (
+  const renderTecnicalH = tecnicalH.map((item, index) => (
     <TecnicalItem
       icon={item.icon}
       thname={item.thname}
-      key={item.thname}
+      key={item.thname + index}
     ></TecnicalItem>
   ));
-  const renderSoftH = softH.map((item) => (
-    <SoftItem thname={item.thname} key={item.thname}></SoftItem>
+  const renderSoftH = softH.map((item, index) => (
+    <SoftItem thname={item.thname} key={item.thname + index}></SoftItem>
   ));
   return (
     <Container>

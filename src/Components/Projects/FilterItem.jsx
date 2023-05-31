@@ -1,5 +1,5 @@
 // React
-import React, { useState } from "react";
+import React from "react";
 
 // Styled
 import styled from "styled-components";
@@ -47,12 +47,12 @@ const FilterP = styled.p`
   transition: background 0.2s linear;
   &.selected {
     background: ${(props) => props.theme.mode.colors[props.color]};
-    color: ${props => props.theme.mode.colors.textInverse};
+    color: ${(props) => props.theme.mode.colors.textInverse};
   }
   @media (min-width: 700px) {
     &:hover {
       transition: background 0.2s linear;
-      color: ${props => props.theme.mode.colors.textInverse};
+      color: ${(props) => props.theme.mode.colors.textInverse};
       background: ${(props) => props.theme.mode.colors[props.color]};
     }
   }
@@ -60,18 +60,19 @@ const FilterP = styled.p`
 
 const FilterItem = ({ filterType, filter, setterFilter, filterSelected }) => {
   const changeState = (e) => {
-    if (e != `all`) {
+    if (e !== `all`) {
       return filterSelected === e ? `selected` : ``;
     }
     return;
   };
-  const renderFilter = filter.map((e) => (
+  const renderFilter = filter.map((e, index) => (
     <FilterP
       color={e.color}
       className={changeState(e.name)}
       onClick={() =>
         e.name === filterSelected ? setterFilter(`all`) : setterFilter(e.name)
       }
+      key={e.color + index}
     >
       {e.name}
     </FilterP>

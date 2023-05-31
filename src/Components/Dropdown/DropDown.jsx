@@ -9,8 +9,6 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 const DropDown = ({ stateMenu }) => {
   const [dropdown, setDropdown] = useState(false);
 
-
-
   const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -64,13 +62,17 @@ const DropDown = ({ stateMenu }) => {
   ));
 
   const renderSelected = () => {
-    const selected = languageSettings.find((lang) => lang.id === themeContext.langSelected);
+    const selected = languageSettings.find(
+      (lang) => lang.id === themeContext.langSelected
+    );
 
     return (
       <Options
         text={selected.text}
         img={selected.img}
         icon={<MdKeyboardArrowDown />}
+        key={selected.id}
+        id={selected.id}
       ></Options>
     );
   };

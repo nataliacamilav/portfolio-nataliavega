@@ -140,12 +140,12 @@ const NavBar = ({
     },
   ];
   // Renderizado de botones
-  const renderButtons = buttonsNav.map((button) => (
+  const renderButtons = buttonsNav.map((button, index) => (
     <ButtonNav
       bgColor={button.bgColor}
       text={button.text}
       icon={button.icon}
-      key={`ButtonNav` + button.text + button.bgColor}
+      key={`ButtonNav` + index}
       link={button.link}
       id={button.id}
       dialog={button.dialog}

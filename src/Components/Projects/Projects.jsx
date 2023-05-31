@@ -188,8 +188,8 @@ const Projects = () => {
       subtitle: theme.lang.projects.gina.subtitle,
       date: theme.lang.projects.gina.date,
       filterTag: [
-        { name:  theme.lang.projects.ac1it1, color: "lightPink" },
-        { name:  theme.lang.projects.ac1it2, color: "lightPurple" },
+        { name: theme.lang.projects.ac1it1, color: "lightPink" },
+        { name: theme.lang.projects.ac1it2, color: "lightPurple" },
       ],
       skillsTag: [
         `Prototipado`,
@@ -224,7 +224,7 @@ const Projects = () => {
         `Ps`,
       ],
       image: `coderVFProject.png`,
-      text:theme.lang.projects.vf.text,
+      text: theme.lang.projects.vf.text,
       behance: `https://www.behance.net/gallery/153206055/Reporte-UX-VF-Natalia-Vega?tracking_source=project_owner_other_projects/`,
       comment: theme.lang.projects.vf.comment,
     },
@@ -252,7 +252,7 @@ const Projects = () => {
     {
       id: 1,
       title: theme.lang.projects.share.title,
-      subtitle:theme.lang.projects.share.subtitle,
+      subtitle: theme.lang.projects.share.subtitle,
       date: theme.lang.projects.share.date,
       filterTag: [{ name: theme.lang.projects.ac1it1, color: "lightPink" }],
       skillsTag: [
@@ -273,16 +273,17 @@ const Projects = () => {
     },
   ];
   const [filterSelected, setFilterSelected] = useState(`all`);
-  const renderFilters = filters.map((item) => (
+  const renderFilters = filters.map((item, index) => (
     <FilterItem
       filterType={item.filterType}
       filter={item.filter}
       setterFilter={setFilterSelected}
       filterSelected={filterSelected}
+      key={item.filterType + index}
     ></FilterItem>
   ));
   function renderProjects(colection) {
-    return colection.map((item) => (
+    return colection.map((item, index) => (
       <ProjectItem
         title={item.title}
         subtitle={item.subtitle}
@@ -296,8 +297,8 @@ const Projects = () => {
         gitHub={item.gitHub}
         link={item.link}
         id={item.id}
-        key={item.id}
         comment={item.comment}
+        key={item.title + index}
       ></ProjectItem>
     ));
   }
