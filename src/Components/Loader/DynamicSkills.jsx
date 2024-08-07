@@ -24,6 +24,7 @@ const DynamicSkills = () => {
     "CSS3",
     "JavaScript",
     "ReactJS",
+    "React Native",
     "Figma",
     "Start",
   ];

@@ -188,31 +188,34 @@ const ES = {
     p1: (
       <P>
         Soy una persona <Span>creativa</Span>, <Span>entusiasta</Span> y
-        <Span> responsable</Span>. A comienzos del año 2022 decidí tomar un
-        rumbo distinto con mi vida profesional y cambié de estudiar odontología
-        a dedicarme al diseño y desarrollo web.
+        <Span>responsable</Span>. Comencé mi carrera en el 2022 estudiando diseño UX UI y realizando proyectos freelance. Luego me
+        enfoqué en el desarrollo web, y hoy en día trabajo en desarrollo para aplicaciones en iOS y Android,
+        integrando mis conocimientos de frontend y UX/UI para crear aplicaciones de
+        alta calidad.
       </P>
     ),
     p2: (
       <P>
-        Realicé cursos de Diseño UX UI y además proyectos donde cumplí este rol.
-        Luego comencé a estudiar desarrollo web aprendiendo
-        <Span> HTML5</Span>,<Span> CSS3</Span>,<Span> JavaScript</Span> y
-        <Span> React JS</Span>. También poseo proyectos integradores, te invito
-        a verlos más abajo 😊.{" "}
+        Realicé cursos de Diseño UX/UI y participé en proyectos donde cumplí este rol.
+        Posteriormente, profundicé en el desarrollo web aprendiendo 
+        <Span>HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span> y
+        <Span>React JS</Span>. Actualmente, trabajo como desarrolladora mobile
+        y frontend, utilizando tecnologías como <Span>React Native</Span>,
+        <Span>Next.js</Span> y <Span>TypeScript</Span>.
       </P>
     ),
     p3: (
       <P>
-        Me gusta trabajar en equipo por lo que considero que tengo la capacidad
+        Me gusta trabajar en equipo, por lo que considero que tengo la capacidad
         de adaptarme rápidamente, empatizar y comunicarme claramente. Además,
         soy atenta a los detalles y puedo resolver problemas emergentes.
       </P>
     ),
     p4: (
       <P>
-        Espero conseguir un puesto laboral donde pueda emplear mis conocimientos
-        actuales y tener la oportunidad de seguir ampliándolos
+        Siempre busco ampliar mis conocimientos, y actualmente estoy estudiando 
+        una tecnicatura superior en desarrollo de software para seguir creciendo 
+        en mi carrera profesional.
       </P>
     ),
   },
@@ -448,32 +451,35 @@ const EN = {
     h2: `About Me`,
     p1: (
       <P>
-        I am a <Span>creative</Span>, <Span>enthusiastic</Span>, and{" "}
-        <Span>responsible</Span> person. At the beginning of 2022 I decided to
-        take my professional path in another direction which led me to change
-        from studying dentistry to web design and development.
+        I am a <Span>creative</Span>, <Span>enthusiastic</Span>, and
+        <Span>responsible</Span> person. I started my career in 2022 studying UX UI design. Then
+        moved into web development, and today I work in mobile development for iOS and Android,
+        integrating my frontend and UX/UI knowledge to create high-quality
+        applications.
       </P>
-    ),
+    ),    
     p2: (
       <P>
-        I did UX UI design courses and some projects where I fulfilled that
-        role. Then I proceeded with web development by learning{" "}
-        <Span>HTML5</Span>, <Span>CSS3</Span>,<Span>JavaScript</Span> and{" "}
-        <Span>React JS</Span>. I have some integrating projects I invite you to
-        see in the section called “Projects”.
+        I took UX/UI design courses and participated in projects where I fulfilled
+        that role. Then I deepened my knowledge in web development by learning
+        <Span>HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span>, and
+        <Span>React JS</Span>. Currently, I work as a mobile and frontend developer,
+        utilizing technologies such as <Span>React Native</Span>, <Span>Next.js</Span>,
+        and <Span>TypeScript</Span>.
       </P>
     ),
     p3: (
       <P>
-        I am a team worker, so I consider I have the ability to adapt quickly,
-        empathise, and communicate clearly. Furthermore, I pay attention to
-        details and I can solve emerging issues.
+        I am a team worker, so I consider that I have the ability to adapt quickly,
+        empathize, and communicate clearly. Furthermore, I pay attention to details
+        and can solve emerging issues.
       </P>
     ),
     p4: (
       <P>
-        I expect to get a job position where I can use my skills and keep
-        expanding them.
+        I am always looking to expand my knowledge, and I am currently studying
+        for a higher technical degree in software development to continue growing
+        in my professional career.
       </P>
     ),
   },
