@@ -64,7 +64,7 @@ A continuación se muestran algunas capturas de pantalla del proyecto:
 ![Captura de Pantalla 9](./screenshots/9.png)
 
 ## Autor
-- [Natalia Vega](https://www.linkedin.com/in/nataliacamilav/)
+- [Natalia Vega](https://www.linkedin.com/in/nataliacamilavega/)
 
 ## Desarrollo
 - [x] Tema oscuro y claro
