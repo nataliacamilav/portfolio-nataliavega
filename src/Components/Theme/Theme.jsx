@@ -188,7 +188,7 @@ const ES = {
     p1: (
       <P>
         Soy una persona <Span>creativa</Span>, <Span>entusiasta</Span> y
-        <Span>responsable</Span>. Comencé mi carrera en el 2022 estudiando diseño UX UI y realizando proyectos freelance. Luego me
+        <Span> responsable</Span>. Comencé mi carrera en el 2022 estudiando diseño UX UI y realizando proyectos freelance. Luego me
         enfoqué en el desarrollo web, y hoy en día trabajo en desarrollo para aplicaciones en iOS y Android,
         integrando mis conocimientos de frontend y UX/UI para crear aplicaciones de
         alta calidad.
@@ -198,10 +198,10 @@ const ES = {
       <P>
         Realicé cursos de Diseño UX/UI y participé en proyectos donde cumplí este rol.
         Posteriormente, profundicé en el desarrollo web aprendiendo 
-        <Span>HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span> y
-        <Span>React JS</Span>. Actualmente, trabajo como desarrolladora mobile
+        <Span> HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span> y
+        <Span> React JS</Span>. Actualmente, trabajo como desarrolladora mobile
         y frontend, utilizando tecnologías como <Span>React Native</Span>,
-        <Span>Next.js</Span> y <Span>TypeScript</Span>.
+        <Span> Next.js</Span> y <Span>TypeScript</Span>.
       </P>
     ),
     p3: (
@@ -452,7 +452,7 @@ const EN = {
     p1: (
       <P>
         I am a <Span>creative</Span>, <Span>enthusiastic</Span>, and
-        <Span>responsible</Span> person. I started my career in 2022 studying UX UI design. Then
+        <Span> responsible</Span> person. I started my career in 2022 studying UX UI design. Then
         moved into web development, and today I work in mobile development for iOS and Android,
         integrating my frontend and UX/UI knowledge to create high-quality
         applications.
@@ -462,10 +462,10 @@ const EN = {
       <P>
         I took UX/UI design courses and participated in projects where I fulfilled
         that role. Then I deepened my knowledge in web development by learning
-        <Span>HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span>, and
-        <Span>React JS</Span>. Currently, I work as a mobile and frontend developer,
+        <Span> HTML5</Span>, <Span>CSS3</Span>, <Span>JavaScript</Span>, and
+        <Span> React JS</Span>. Currently, I work as a mobile and frontend developer,
         utilizing technologies such as <Span>React Native</Span>, <Span>Next.js</Span>,
-        and <Span>TypeScript</Span>.
+        and <Span> TypeScript</Span>.
       </P>
     ),
     p3: (
