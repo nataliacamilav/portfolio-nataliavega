@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# PORTAFOLIO REACT - Natalia Vega
+- **Última actualización:** 31 de mayo de 2023
+- **Versión:** 1.0.0
+- **Link del proyecto:** [Portafolio Natalia Vega](https://nataliavega-portfolio.vercel.app/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
+Este proyecto es un portafolio personal desarrollado en React. El proyecto incluye una página de inicio, una página de proyectos, una página de habilidades y una página de contacto. El proyecto incluye un tema oscuro y claro, así como la posibilidad de cambiar el idioma entre inglés y español. Además, el proyecto incluye la posibilidad de descargar el CV en inglés y español.
 
-## Available Scripts
+## Tecnologías Utilizadas
+- React
+- Styled Components
+- React Router Dom
 
-In the project directory, you can run:
+## Dependencias
+Para ejecutar este proyecto, deberás instalar algunas dependencias. A continuación se muestra una lista de las principales dependencias que necesitarás:
 
-### `npm start`
+- `react`: El framework utilizado para desarrollar la aplicación.
+- `styled-components`: Utilizado para el estilo de los componentes.
+- `react-router-dom`: Maneja la navegación entre las diferentes pantallas de la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Puedes instalar todas las dependencias necesarias ejecutando:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+```
 
-### `npm test`
+## Instalación
+Para instalar el proyecto, sigue estos pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clona el repositorio
+- Instala las dependencias
+- Ejecuta el proyecto
 
-### `npm run build`
+```bash
+git clone
+cd portafolio-react
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Uso
+Para utilizar este proyecto, sigue estos pasos:
+- Abre el proyecto en tu editor de código
+- Modifica los archivos según sea necesario
+- Ejecuta el proyecto
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+code .
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Capturas de Pantalla
+A continuación se muestran algunas capturas de pantalla del proyecto:
 
-### `npm run eject`
+- **Version 1.0.0:** 31 de mayo de 2023
+![Captura de Pantalla 1](./screenshots/1.png)
+![Captura de Pantalla 2](./screenshots/2.png)
+![Captura de Pantalla 3](./screenshots/3.png)
+![Captura de Pantalla 4](./screenshots/4.png)
+![Captura de Pantalla 5](./screenshots/5.png)
+![Captura de Pantalla 6](./screenshots/6.png)
+![Captura de Pantalla 7](./screenshots/7.png)
+![Captura de Pantalla 8](./screenshots/8.png)
+![Captura de Pantalla 9](./screenshots/9.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Autor
+- [Natalia Vega](https://www.linkedin.com/in/nataliacamilavega/)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Desarrollo
+- [x] Tema oscuro y claro
+- [x] Multi-idioma: inglés y español
+- [x] Descargar CV en inglés y español
+- [x] Navegación utilizando React Router Dom
