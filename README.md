@@ -52,7 +52,7 @@ npm start
 ## Capturas de Pantalla
 A continuación se muestran algunas capturas de pantalla del proyecto:
 
-- **Version 1.0.0:** 31 de mayo de 2023
+- **Version 1.0.0:** 31 de mayo de 2023 (Con modificaciones en los textos. Diseño y codigo de la fecha indicada)
 ![Captura de Pantalla 1](./screenshots/1.png)
 ![Captura de Pantalla 2](./screenshots/2.png)
 ![Captura de Pantalla 3](./screenshots/3.png)
@@ -61,7 +61,6 @@ A continuación se muestran algunas capturas de pantalla del proyecto:
 ![Captura de Pantalla 6](./screenshots/6.png)
 ![Captura de Pantalla 7](./screenshots/7.png)
 ![Captura de Pantalla 8](./screenshots/8.png)
-![Captura de Pantalla 9](./screenshots/9.png)
 
 ## Autor
 - [Natalia Vega](https://www.linkedin.com/in/nataliacamilavega/)
