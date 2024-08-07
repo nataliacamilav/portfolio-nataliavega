@@ -48,9 +48,9 @@ const Footer = () => {
       link: `https://www.linkedin.com/in/nataliacamilavega/`,
     },
     {
-      scname: `nataliavega98`,
+      scname: `nataliacamilav`,
       icon: <BsGithub />,
-      link: `https://github.com/nataliavega98`,
+      link: `https://github.com/nataliacamilav`,
     },
     {
       scname: `nataliavega98`,

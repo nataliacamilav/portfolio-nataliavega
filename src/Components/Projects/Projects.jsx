@@ -86,7 +86,7 @@ const Projects = () => {
         `UXTweak`,
         `Ps`,
       ],
-      image: `reporteMove.png`,
+      image: `reportMove.png`,
       text: theme.lang.projects.moveFinanciera.text,
       behance: `https://www.behance.net/gallery/171044901/MOVE-Financiera-Rediseno-de-sistema?`,
       comment: theme.lang.projects.moveFinanciera.comment,
